@@ -6,17 +6,23 @@
         
         br
 
-        h2
-            a(href="#EventsCalendar").btn-lg.btn-success Join us at an upcoming event 
-                span.glyphicon.glyphicon-chevron-right
+        ul.list-inline
+            li(style="margin-bottom:35px;")
+                a(href="#EventsCalendar").btn-lg.btn-success Join us at an upcoming event 
+                    span.glyphicon.glyphicon-chevron-right
 
+            li(style="margin-bottom:35px;")
+                a(href="#GetInvolved").btn-lg.btn-success Start your project
+                    span.glyphicon.glyphicon-chevron-right
+
+            li(style="margin-bottom:35px;")
+                a(href="#GetInvolved").btn-lg.btn-success Join a project
+                    span.glyphicon.glyphicon-chevron-right
+    
         br
         br
         br
 
-        img(src="/img/connect.png", style="width:100%;").img-responsive
-
-        br
 
     .row(style="background:rgb(29,33,39);color:rgb(248,231,156);")
         .col-sm-12
@@ -28,28 +34,30 @@
                 img(src="/img/edu_bricobroue.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") Upcoming event: Bricobrew workshop, take 2!
-                    p We'll be taking another run at the brewing workshop this Saturday, March 22 from x to y pm.
+                        a(href="http://www.meetup.com/DIYBio-Montreal/events/171862352/") Upcoming event: Bricobrew workshop, take 2!
+                    p We'll be taking another run at the brewing workshop this Saturday, March 22 from 1 to 4 pm.
                     p.text-center
         .col-sm-6.col-md-4
             .thumbnail 
-                img(src="http://placehold.it/608x342").img-responsive
+                img(src="/img/edu_bricobroue.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") this is the first item
-                    p this is the text in the first item. Event!
+                        a(href="http://www.meetup.com/DIYBio-Montreal/events/170251532/") Bricobrew workshop
+                    p We held our first Bricobrew Workshop this last Sunday, March 16. It was a lot of fun! See our Twitter feed 
+                        a(href='https://www.twitter.com/bricobiomtl') @bricobiomtl 
+                        |  for a rundown of what happened!
                     p.text-center
         .col-sm-6.col-md-4
             .thumbnail 
-                img(src="http://placehold.it/608x342").img-responsive
+                img(src="/img/nws_diybio.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") this is the first item
-                    p this is the text in the first item. Event!
+                        a(href="#link") Welcome to 2014: the year of biohacking
+                    p Your vision for Bricobio and the DIYbio movement this year is big, and we want to help you make it happen!
                     p.text-center
 
 
-    .row(style="background:rgb(174, 90, 175);color:rgb(148,187,221);")
+    .row(style="background:rgb(174, 90, 175);color:rgb(29,33,39);")
         .col-sm-12
             h2.text-center 
                 a(name="education")
@@ -59,7 +67,7 @@
                 img(src="/img/edu_mb101.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") Molecular biology 101
+                        a.muted Molecular biology 101 (in development)
                     p A 10-session overview of the fundamentals of molecular biology, designed by a McGill PhD student.
                     p Designed to take biology beginners to an intermediate-advanced understanding of molecular biology quickly, this course covers the function of DNA and several biotechnological tools. 
                     p This course is still in development. We plan to start offering sessions in the summer of 2014.
@@ -69,17 +77,22 @@
                 img(src="/img/edu_bricobroue.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") Bricobrew
+                        a(href="http://www.meetup.com/DIYBio-Montreal/events/170251532/") Bricobrew
                     p Bricobrew - a biology-focused workshop on fermented foods.
                     p A 3-session workshop in which we prepare a (different set of) beer(s) (every time). We also discuss the biology of fermentation and take a hands-on tour of the world's fermented foods.
                     p.text-center
         .col-sm-6.col-md-4
             .thumbnail 
-                img(src="").img-responsive
+                img(src="/img/edu_genomikon.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") this is the first item
-                    p this is the text in the first item. Event!
+                        a(href="http://www.meetup.com/DIYBio-Montreal/events/150408782/") Genomikon Workshop
+                    p We held our first Genomikon workshop in the fall of 2013. See this 
+                        a(href='http://blog.synbiota.com/index.php/2014/03/06/genomikonbricobio-workshop/') blog post 
+                        | at Synbiota to find out what we did! 
+                    p Investigate the procedure and results at our 
+                        a(href="https://www.synbiota.com/projects/340") open lab notebook
+                        | !
                     p.text-center
 
     .row(style="background:rgb(218,227,226);")
@@ -89,39 +102,56 @@
                 | Projects
         .col-sm-6.col-md-4
             .thumbnail 
-                img(src="https://s3.amazonaws.com/synbiotaalpha/beta/project_cover_pictures/428/720/ea0e1a6bed9ea15d0fd4a85247a9bb5090739a7c_2014-03-10_20.27.12.jpg?1394805205").img-responsive
+                img(src="/img/prj_bricoreactor.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") Bricoreactor
-                    p In collaboration with Hyasynth and Sensorica.
+                        a(href="https://www.synbiota.com/projects/428") Bricoreactor
+                    p We are developing a very low cost, modular, and extesible bioreactor in collaboration with 
+                        a(href="http://www.hyasynthbio.com") Hyasynth
+                        |  and 
+                        a(href="http://www.sensorica.co") Sensorica
+                        | .
                     p.text-center
         .col-sm-6.col-md-4
             .thumbnail 
-                img(src="").img-responsive
+                img(src="/img/prj_sciencehack.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") this is the first item
-                    p this is the text in the first item. Event!
+                        a(href="https://sciencehack.synbiota.com/") Synbiota #ScienceHack
+                    p Bricobio co-founders Justin Praha and Connor Dickie of Synbiota have recently launched an amazing distributed, open synthetic biology experiment to produce a life-saving drug using 
+                        i E. coli, 
+                        | the Public Labs spectrometer, and the Genomikon plasmid kit. 
+                    p Get involved at 
+                        a(href="https://sciencehack.synbiota.com/") sciencehack.synbiota.com
+                        | !
                     p.text-center
         .col-sm-6.col-md-4
             .thumbnail 
-                img(src="http://placehold.it/608x342").img-responsive
+                img(src="/img/prj_yours.png").img-responsive
                 .caption
                     h3 
-                        a(href="#link") this is the first item
-                    p this is the text in the first item. Event!
+                        a(href="#contact") Your project here?
+                    p Come talk to us about your ideas!
                     p.text-center
 
     .row(style="background:#f3f3f3;")
-        .col-sm-12
+        .col-sm-6
             h2.text-center 
                 a(name="about")
                 | About us
 
-            p Bricobio is a DIYbio / biohacking group located in Montreal. Our members are working on several projects, which can be found on the 
-              a.btn.btn-small.btn-info(style="padding:2px 3px;") Projects 
-              |  page. 
-
+            p Bricobio is a DIYbio / biohacking group located in Montreal. Our members are working on several projects, which can be found in the 
+              a.btn.btn-small.btn-info(href="#projects", style="padding:2px 3px;") Projects 
+              |  section. 
+        .col-sm-6
+            h2.text-center
+                a(name="GetInvolved")
+                | Getting involved with Bricobio
+            p To join or start a project, visit the project's Synbiota 
+                a(href="#projects") notebook
+                |  or post in the 
+                a(href="#contact") Bricobio discussion forum
+                | , and jump right in! We have a great network of talented people to help you find what you need to bring your ideas to life, and learn what you need to know to get your project off the ground.
 
     .row(style="background:#fff;")
       .col-sm-12
@@ -133,5 +163,6 @@
     .row(style="background:#fff;")
         .col-sm-12
             h2.text-center Bricobio Discussion Forum and Mailing List
+                a(name="contact")
             iframe(id="forum_embed", src="https://groups.google.com/forum/embed/?place=forum/bricobio#!forum/bricobio" scrolling="no" frameborder="0").googleCalendarIframe
 
