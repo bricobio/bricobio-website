@@ -1,0 +1,1608 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet  href="job.xsl" type="text/xsl"?><jobState>
+  <program>
+    <head>
+      <name>PEP-FOLD</name>
+      <version>1.5</version>
+      <doc>
+        <title>PEP-FOLD</title>
+        <description>
+          <text lang="en">
+    De novo peptide structure prediction. 
+          </text>
+          <text lang="en">
+            <!--    Note: october 22, 2013: some calculation nodes show erratical malfunction. Please report failures. -->
+          </text>
+          <!--          <text lang="en"> -->
+          <!--            == 2013/06/10: Server saturation may affect job execution. Sorry for the inconvenience. == -->
+          <!--          </text> -->
+        </description>
+        <comment>
+          <text lang="en">
+	    PEP-FOLD is a service for the de novo prediction of peptide conformation from amino acid sequence. It is based on a Hidden Markov Model derived Structural Alphabet that describes a conformation a a series of local overlapping canonical conformations. PEP-FOLD 3D generation is performed using a discrete set of structural prototypes, and using the sOPEP coarse-grained force field.
+	  </text>
+          <text lang="en">
+	    Important: PEP-FOLD will not "discover" disulfide bonds. You have to specify the connectivity of the cysteines.
+	  </text>
+          <text lang="en">
+	    2011/10/16: New implementation including constraints such as disulfide bonds.
+	  </text>
+          <text lang="en">
+	    2011/06/21: Improved local prediction engine. New service design. 
+	  </text>
+        </comment>
+        <reference>
+	  Thévenet P, Shen Y, Maupetit J, Guyon F, Derreumaux P and Tufféry P.
+	  PEPFOLD: an updated de novo structure prediction server for both linear and disulfide bonded cyclic peptides.
+	  Submitted.
+        </reference>
+        <reference>
+	  Maupetit J, Derreumaux P, Tuffery P.
+	  PEP-FOLD: an online resource for de novo peptide structure prediction.
+	  Nucleic Acids Res. 2009. doi:10.1093/nar/gkp323 
+        </reference>
+        <reference>
+	  Maupetit J, Derreumaux P, Tuffery P.
+	  A fast and accurate method for large-scale de novo peptide
+	  structure prediction. 
+	  J Comput Chem. 2010. 31(4):726-38.
+	</reference>
+        <authors>Maupetit, J., Derreumaux, P. and Tuffery,
+	P.</authors>
+        <doclink>http://bioserv.rpbs.univ-paris-diderot.fr/PEP-FOLD</doclink>
+      </doc>
+      <progressReport>.progress.txt</progressReport>
+      <!-- <category>Test</category> -->
+      <category>Peptides:Prediction</category>
+      <category>Structure:Prediction:3D_structure</category>
+      <interface type="form" generated="true">
+        <fieldset xmlns="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="Special">
+          <legend>Demonstration Mode</legend>
+          <div>
+            <label class="parameter &#10;&#9;&#9;&#9;&#9;mandatory&#10;&#9;&#9;&#9;&#9;" title="This parameter is mandatory" data-issimple="true" data-ismultiple="false" data-default-value="0" data-datatype="Boolean" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="demo">Test the service (1jbl PDB entry will be
+      	used specifying 3-11 as SS bond constraint, input parameters will be discarded)<select name="demo">
+                <option value="1">Yes</option>
+                <option value="0" selected="selected">No</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset xmlns="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="InputData">
+          <legend>Input Data </legend>
+          <div>
+            <fieldset class="parameter " title="" data-issimple="true" data-ismultiple="false" data-default-value="" data-datatype="Sequence" data-datatype-superclass="" data-biotype="" data-card="" data-formats="FASTA " data-parametername="iSeq">
+              <legend>Peptide amino acid sequence<a href="#id512388::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              </legend>
+              <div id="id512388::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+	    Use this input field to specify the amino acid sequence of the peptide. 
+	    It must be in the FASTA format.
+	    For more information about the format, please read the sequence format tutorial (Mobyle Tutorials section, on the left).
+	    Note: Simulated sequence length must be comprized between 9 and 36 amino-acids. It is possible to specify longer sequences (up to 50 amino acids), but you have to specify a region between 9 and 36 amino acids using the "3D reconstruction range" parameter below.
+	  </div>
+              </div>
+              <textarea name="iSeq" cols="60" rows="7"> </textarea>
+            </fieldset>
+          </div>
+        </fieldset>
+        <fieldset xmlns="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="Options">
+          <legend>Options</legend>
+          <div>
+            <label class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="PEPFOLD" data-datatype="String" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="joblabel">Run label<input name="joblabel" type="text" value="PEPFOLD"/>
+            </label>
+            <label class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="short" data-datatype="Choice" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="nruns">Type of simulation<a href="#id509854::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              <select name="nruns">
+                <option value="long">long</option>
+                <option value="short" selected="selected">short</option>
+              </select>
+              <div id="id509854::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+      	    Long simulations correspond to 200 runs.
+      	  </div>
+                <div>
+      	    Short simulations correspond to 100 runs.
+      	  </div>
+                <div>
+      	    Usually, for peptides less than 36 amino acids, short simulations will produce results similar to long simulations.
+      	  </div>
+              </div>
+            </label>
+            <label class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="sOPEP" data-datatype="Choice" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="sortkey">Sort models by<a href="#id512329::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              <select name="sortkey">
+                <option value="sOPEP" selected="selected">sOPEP</option>
+                <option value="tm">tm</option>
+              </select>
+              <div id="id512329::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+      	    Depending on the selected item, clusters will be sorted by:
+      	  </div>
+                <div>
+      	    sOPEP: sOPEP energy
+      	  </div>
+                <div>
+      	    tm: apollo predicted TM score.
+      	  </div>
+                <div>
+      	    The best models returned will follow this sort.
+      	  </div>
+              </div>
+            </label>
+            <label class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="fromto">3D reconstruction range (if needed)<i>
+				(UString)
+			</i>
+              <a href="#id515224::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              <input name="fromto" type="text" value=""/>
+              <div id="id515224::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+      	    You can use this field to specify the limits of PEP-FOLD 3D simulation for a sequence larger than 36 residues (and not larger than 50 residues). 
+      	  </div>
+                <div>
+	    The limits must be specified on the form: x-y (e.g. 15-45), indicating that the 3D models will encompass the region between residues 15 and 45 (included).
+      	  </div>
+                <div>
+      	    Sequence residues are numbered from 1.
+      	  </div>
+                <div>
+      	  The total size of the simulation (y - x + 1) cannot exceed 36 residues, and the total size of the sequence cannot exceed 50 residues. By default, the complete sequence is considered if nothing is specified (if it is less than 36 residues).
+      	  </div>
+                <div>
+      	  Note: It is best to specify larger sequence and to restrain 3D modelling to a specified region than to truncate the amino acid sequence, because the local structure prediction at N- and C- termini can be affected by the truncation. 
+      	  </div>
+              </div>
+            </label>
+            <label class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="userSS">Input disulfide bond definition (if any)<i>
+				(UString)
+			</i>
+              <a href="#id519668::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              <input name="userSS" type="text" value=""/>
+              <div id="id519668::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+	    If you know the disulfide bond pairings, you can specify them here.
+	  </div>
+                <div>
+	    Residues are numbered from 1.
+	  </div>
+                <div>
+	    A SS bond between residue 1 and 7 would be specified as: 1-7
+	  </div>
+                <div>
+	    Multiple bonds are separated using a ':'. For instance:
+	    SS bond between residue (1 and 7) and (21 and 28) would be specified as: 1-7:21-28
+	  </div>
+              </div>
+            </label>
+            <label class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="userProx">Input residue proximities (if any)<i>
+				(UString)
+			</i>
+              <a href="#id514670::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              <input name="userProx" type="text" value=""/>
+              <div id="id514670::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+	    If you know residue proximities, you can specify them here.
+	    This would enforce energy score when residues are close to each other.
+	  </div>
+                <div>
+	    Residues are numbered from 1.
+	    A proximity between residue 1 and 7 would be specified as: 1-7
+	  </div>
+              </div>
+            </label>
+            <fieldset class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="iRef">
+              <legend>Reference structure<a href="#id514771::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+              </legend>
+              <div id="id514771::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <div>
+              Specify here a reference structure (PDB Format). It MUST be the same sequence as submitted as input data. If you specify a 3D reconstruction range, the sequence must match exactly the sequence selected.
+            </div>
+              </div>
+              <textarea name="iRef" cols="60" rows="7"> </textarea>
+            </fieldset>
+          </div>
+        </fieldset>
+      </interface>
+      <interface type="job_input" generated="true">
+        <xhtml:fieldset xmlns:xhtml="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="Special">
+          <xhtml:legend>Demonstration Mode</xhtml:legend>
+          <xhtml:div>
+            <xhtml:div data-parametername="demo" class="parameter &#10;&#9;&#9;&#9;&#9;mandatory&#10;&#9;&#9;&#9;&#9;" title="This parameter is mandatory" data-issimple="true" data-ismultiple="false" data-default-value="0" data-datatype="Boolean" data-datatype-superclass="" data-biotype="" data-card="" data-formats=""/>
+          </xhtml:div>
+        </xhtml:fieldset>
+        <xhtml:fieldset xmlns:xhtml="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="InputData">
+          <xhtml:legend>Input Data </xhtml:legend>
+          <xhtml:div>
+            <xhtml:div data-parametername="PEPFOLD" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="String" data-datatype-superclass="" data-biotype="" data-card="" data-formats=""/>
+            <xhtml:div data-parametername="iSeq" class="parameter " title="" data-issimple="true" data-ismultiple="false" data-default-value="" data-datatype="Sequence" data-datatype-superclass="" data-biotype="" data-card="" data-formats="FASTA ">
+              <xhtml:i>
+				(Sequence)
+			</xhtml:i>
+              <xhtml:a href="#id512388::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id512388::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Use this input field to specify the amino acid sequence of the peptide. 
+	    It must be in the FASTA format.
+	    For more information about the format, please read the sequence format tutorial (Mobyle Tutorials section, on the left).
+	    Note: Simulated sequence length must be comprized between 9 and 36 amino-acids. It is possible to specify longer sequences (up to 50 amino acids), but you have to specify a region between 9 and 36 amino acids using the "3D reconstruction range" parameter below.
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:fieldset>
+        <xhtml:fieldset xmlns:xhtml="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="Options">
+          <xhtml:legend>Options</xhtml:legend>
+          <xhtml:div>
+            <xhtml:div data-parametername="joblabel" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="PEPFOLD" data-datatype="String" data-datatype-superclass="" data-biotype="" data-card="" data-formats=""/>
+            <xhtml:div data-parametername="nruns" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="short" data-datatype="Choice" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+              <xhtml:a href="#id509854::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id509854::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+      	    Long simulations correspond to 200 runs.
+      	  </xhtml:div>
+                <xhtml:div>
+      	    Short simulations correspond to 100 runs.
+      	  </xhtml:div>
+                <xhtml:div>
+      	    Usually, for peptides less than 36 amino acids, short simulations will produce results similar to long simulations.
+      	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="sortkey" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="sOPEP" data-datatype="Choice" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+              <xhtml:a href="#id512329::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id512329::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+      	    Depending on the selected item, clusters will be sorted by:
+      	  </xhtml:div>
+                <xhtml:div>
+      	    sOPEP: sOPEP energy
+      	  </xhtml:div>
+                <xhtml:div>
+      	    tm: apollo predicted TM score.
+      	  </xhtml:div>
+                <xhtml:div>
+      	    The best models returned will follow this sort.
+      	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="fromto" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+              <xhtml:i>
+				(UString)
+			</xhtml:i>
+              <xhtml:a href="#id515224::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id515224::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+      	    You can use this field to specify the limits of PEP-FOLD 3D simulation for a sequence larger than 36 residues (and not larger than 50 residues). 
+      	  </xhtml:div>
+                <xhtml:div>
+	    The limits must be specified on the form: x-y (e.g. 15-45), indicating that the 3D models will encompass the region between residues 15 and 45 (included).
+      	  </xhtml:div>
+                <xhtml:div>
+      	    Sequence residues are numbered from 1.
+      	  </xhtml:div>
+                <xhtml:div>
+      	  The total size of the simulation (y - x + 1) cannot exceed 36 residues, and the total size of the sequence cannot exceed 50 residues. By default, the complete sequence is considered if nothing is specified (if it is less than 36 residues).
+      	  </xhtml:div>
+                <xhtml:div>
+      	  Note: It is best to specify larger sequence and to restrain 3D modelling to a specified region than to truncate the amino acid sequence, because the local structure prediction at N- and C- termini can be affected by the truncation. 
+      	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="userSS" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+              <xhtml:i>
+				(UString)
+			</xhtml:i>
+              <xhtml:a href="#id519668::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id519668::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    If you know the disulfide bond pairings, you can specify them here.
+	  </xhtml:div>
+                <xhtml:div>
+	    Residues are numbered from 1.
+	  </xhtml:div>
+                <xhtml:div>
+	    A SS bond between residue 1 and 7 would be specified as: 1-7
+	  </xhtml:div>
+                <xhtml:div>
+	    Multiple bonds are separated using a ':'. For instance:
+	    SS bond between residue (1 and 7) and (21 and 28) would be specified as: 1-7:21-28
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="userProx" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+              <xhtml:i>
+				(UString)
+			</xhtml:i>
+              <xhtml:a href="#id514670::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id514670::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    If you know residue proximities, you can specify them here.
+	    This would enforce energy score when residues are close to each other.
+	  </xhtml:div>
+                <xhtml:div>
+	    Residues are numbered from 1.
+	    A proximity between residue 1 and 7 would be specified as: 1-7
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="iRef" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB ">
+              <xhtml:i>
+				(Protein _3DStructure)
+			</xhtml:i>
+              <xhtml:a href="#id514771::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id514771::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+              Specify here a reference structure (PDB Format). It MUST be the same sequence as submitted as input data. If you specify a 3D reconstruction range, the sequence must match exactly the sequence selected.
+            </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="debug" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Filename" data-datatype-superclass="" data-biotype="" data-card="" data-formats=""/>
+          </xhtml:div>
+        </xhtml:fieldset>
+      </interface>
+      <interface type="job_output" generated="true">
+        <xhtml:fieldset xmlns:xhtml="http://www.w3.org/1999/xhtml" class="minimizable" data-paragraphname="Output">
+          <xhtml:legend>Output</xhtml:legend>
+          <xhtml:div>
+            <xhtml:div data-parametername="htmlvisu" style="width:96%; font-size:9pt; border-left:4px solid #cccccc; border-right:4px solid #cccccc; padding: 0 10px 0 10px; text-align:left;">
+              <xhtml:h3>Nota bene</xhtml:h3>
+              <xhtml:p>
+                To take full advantage of the Jmol viewer, please click on the <xhtml:b style="color:red;">full screen view</xhtml:b> button.
+              </xhtml:p>
+            </xhtml:div>
+            <xhtml:div data-parametername="htmlclusters" style="width:96%; font-size:9pt; border-left:4px solid #cccccc; border-right:4px solid #cccccc; padding: 0 10px 0 10px; text-align:left;">
+              <xhtml:h3>Nota bene</xhtml:h3>
+              <xhtml:p>
+                To browse the html results page more easily, please click on the <xhtml:b style="color:red;">full screen view</xhtml:b> button. Then you can also save it by using <xhtml:b>File &gt; Save
+                Page as</xhtml:b> of your web browser.
+              </xhtml:p>
+            </xhtml:div>
+            <xhtml:div data-parametername="model1" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB ">
+              <xhtml:i>
+				(Protein _3DStructure)
+			</xhtml:i>
+              <xhtml:a href="#id519840::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id519840::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Cluster 1 best conformation (according to sort criterion - see the clustering report)
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="model2" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB ">
+              <xhtml:i>
+				(Protein _3DStructure)
+			</xhtml:i>
+              <xhtml:a href="#id515871::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id515871::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Cluster 2 best conformation (according to sort criterion - see the clustering report)
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="model3" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB ">
+              <xhtml:i>
+				(Protein _3DStructure)
+			</xhtml:i>
+              <xhtml:a href="#id514948::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id514948::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Cluster 3 best conformation (according to sort criterion - see the clustering report)
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="model4" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB ">
+              <xhtml:i>
+				(Protein _3DStructure)
+			</xhtml:i>
+              <xhtml:a href="#id520473::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id520473::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Cluster 4 best conformation (according to sort criterion - see the clustering report)
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="model5" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB ">
+              <xhtml:i>
+				(Protein _3DStructure)
+			</xhtml:i>
+              <xhtml:a href="#id520540::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id520540::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Cluster 5 best conformation (according to sort criterion - see the clustering report)
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+            <xhtml:div data-parametername="PPP" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Picture" data-datatype-superclass="Binary" data-biotype="" data-card="" data-formats="">
+              <xhtml:a href="#id520720::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</xhtml:a>
+              <xhtml:div id="id520720::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                <xhtml:div>
+	    Structural alphabet (SA)prediction profile. 
+	  </xhtml:div>
+                <xhtml:div>
+	    The probabilities, at each position of the sequence, of the 27 SA letters are sorted from helical (red), coil (blue) to extended (green).
+	  </xhtml:div>
+                <xhtml:div>
+	    Note: SA letters are 4 residue length, so the profile is of the size of the amino acid sequence minus 3.
+	  </xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:fieldset>
+        <div xmlns="http://www.w3.org/1999/xhtml" data-parametername="stdout" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Report" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+          <i>
+				(Report)
+			</i>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" data-parametername="stderr" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Report" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">
+          <i>
+				(Report)
+			</i>
+        </div>
+      </interface>
+    </head>
+    <parameters>
+      <!-- <paragraph>  -->
+      <!-- <name>information</name>  -->
+      <!-- <prompt>Flash information</prompt>  -->
+      <!-- <parameters> -->
+      <!--   <parameter> -->
+      <!--   	<name>info</name> -->
+      <!--   	<prompt lang="en">Test the service (1jbl PDB entry will be -->
+      <!--   	used specifying 3-11 as SS bond constraint, input parameters will be discarded)</prompt> -->
+      <!-- 	<interface type="form"> -->
+      <!-- 	  <label xmlns="http://www.w3.org/1999/xhtml">2012, Feb 15: Small bug fix following resource update. Some jobs had inconsistent behaviour from Feb 14, 1 pm to Feb 15, 10 am</label> -->
+      <!-- 	</interface> -->
+      <!--   	<type> -->
+      <!--   	  <datatype> -->
+      <!--   	    <class>Boolean</class> -->
+      <!--   	  </datatype> -->
+      <!--   	</type> -->
+      <!--   	<vdef> -->
+      <!--   	  <value>0</value> -->
+      <!--   	</vdef> -->
+      <!--   	<format> -->
+      <!--   	  <code proglang="python">""</code> -->
+      <!--   	</format> -->
+      <!--   	<argpos>1</argpos> -->
+      <!--   </parameter> -->
+      <!-- </parameters> -->
+      <!-- </paragraph> -->
+      <paragraph>
+        <name>Special</name>
+        <prompt>Demonstration Mode</prompt>
+        <parameters>
+          <parameter ismandatory="1" issimple="1">
+            <name>demo</name>
+            <prompt lang="en">Test the service (1jbl PDB entry will be
+      	used specifying 3-11 as SS bond constraint, input parameters will be discarded)</prompt>
+            <type>
+              <datatype>
+                <class>Boolean</class>
+              </datatype>
+            </type>
+            <vdef>
+              <value>0</value>
+            </vdef>
+            <format>
+              <code proglang="python">( "" , " --demo " )[ value ]</code>
+            </format>
+            <argpos>1</argpos>
+            <ctrl>
+              <message>
+                <text lang="en">You must specify either the demo or input a sequence.</text>
+              </message>
+              <code proglang="python">((iSeq is not None) or (demo))</code>
+            </ctrl>
+            <interface type="form" generated="true">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">Test the service (1jbl PDB entry will be
+      	used specifying 3-11 as SS bond constraint, input parameters will be discarded)<select name="demo">
+                  <option value="1">Yes</option>
+                  <option value="0" selected="selected">No</option>
+                </select>
+              </label>
+            </interface>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter &#10;&#9;&#9;&#9;&#9;mandatory&#10;&#9;&#9;&#9;&#9;" title="This parameter is mandatory" data-issimple="true" data-ismultiple="false" data-default-value="0" data-datatype="Boolean" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="demo"/>
+            </interface>
+          </parameter>
+        </parameters>
+      </paragraph>
+      <paragraph>
+        <name>InputData</name>
+        <prompt>Input Data </prompt>
+        <parameters>
+          <parameter iscommand="1" ishidden="1">
+            <name>PEPFOLD</name>
+            <prompt>command</prompt>
+            <type>
+              <datatype>
+                <class>String</class>
+              </datatype>
+            </type>
+            <format>
+              <code proglang="python">"PEPFOLD2Exec --autoFromTo -v --sge --HEFilter --parallelposttreatment "</code>
+            </format>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="String" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="PEPFOLD"/>
+            </interface>
+          </parameter>
+          <!-- <parameter ismandatory="1" ismaininput="1"> -->
+          <parameter ismaininput="1" issimple="1">
+            <name>iSeq</name>
+            <prompt lang="en">Peptide amino acid sequence</prompt>
+            <type>
+              <datatype>
+                <class>Sequence</class>
+              </datatype>
+              <dataFormat>FASTA</dataFormat>
+            </type>
+            <format>
+              <code proglang="python">" -s %s " % str(iSeq)</code>
+            </format>
+            <comment>
+              <text lang="en">
+	    Use this input field to specify the amino acid sequence of the peptide. 
+	    It must be in the FASTA format.
+	    For more information about the format, please read the sequence format tutorial (Mobyle Tutorials section, on the left).
+	    Note: Simulated sequence length must be comprized between 9 and 36 amino-acids. It is possible to specify longer sequences (up to 50 amino acids), but you have to specify a region between 9 and 36 amino acids using the "3D reconstruction range" parameter below.
+	  </text>
+            </comment>
+            <ctrl>
+              <message>
+                <text lang="en">You must specify either the demo or input a sequence.</text>
+              </message>
+              <code proglang="python">(iSeq is not None) or (demo)</code>
+            </ctrl>
+            <argpos>2</argpos>
+            <interface type="form" generated="true">
+              <xhtml:fieldset xmlns:xhtml="http://www.w3.org/1999/xhtml">
+                <xhtml:legend>Peptide amino acid sequence</xhtml:legend>
+                <xhtml:textarea name="iSeq" cols="60" rows="7"> </xhtml:textarea>
+              </xhtml:fieldset>
+            </interface>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="true" data-ismultiple="false" data-default-value="" data-datatype="Sequence" data-datatype-superclass="" data-biotype="" data-card="" data-formats="FASTA " data-parametername="iSeq">
+                <i>
+				(Sequence)
+			</i>
+                <a href="#id512388::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id512388::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Use this input field to specify the amino acid sequence of the peptide. 
+	    It must be in the FASTA format.
+	    For more information about the format, please read the sequence format tutorial (Mobyle Tutorials section, on the left).
+	    Note: Simulated sequence length must be comprized between 9 and 36 amino-acids. It is possible to specify longer sequences (up to 50 amino acids), but you have to specify a region between 9 and 36 amino acids using the "3D reconstruction range" parameter below.
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+        </parameters>
+      </paragraph>
+      <paragraph>
+        <name>Options</name>
+        <prompt>Options</prompt>
+        <parameters>
+          <parameter>
+            <name>joblabel</name>
+            <prompt lang="en">Run label</prompt>
+            <type>
+              <datatype>
+                <class>String</class>
+              </datatype>
+            </type>
+            <vdef>
+              <value>PEPFOLD</value>
+            </vdef>
+            <format>
+              <code proglang="python">( "", " -l %s " % str(joblabel) )[ value is not None ]</code>
+            </format>
+            <argpos>3</argpos>
+            <interface type="form" generated="true">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">Run label<input name="joblabel" type="text" value="PEPFOLD"/>
+              </label>
+            </interface>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="PEPFOLD" data-datatype="String" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="joblabel"/>
+            </interface>
+          </parameter>
+          <parameter>
+            <name>nruns</name>
+            <prompt lang="en">Type of simulation</prompt>
+            <type>
+              <datatype>
+                <class>Choice</class>
+              </datatype>
+            </type>
+            <vdef>
+              <value>short</value>
+            </vdef>
+            <vlist>
+              <velem>
+                <value>long</value>
+                <label>long</label>
+              </velem>
+              <velem>
+                <value>short</value>
+                <label>short</label>
+              </velem>
+            </vlist>
+            <format>
+              <code proglang="python">( " --combined ", " --shortcombined ")[ nruns == "short" ]</code>
+            </format>
+            <comment>
+              <text lang="en">
+      	    Long simulations correspond to 200 runs.
+      	  </text>
+              <text lang="en">
+      	    Short simulations correspond to 100 runs.
+      	  </text>
+              <text lang="en">
+      	    Usually, for peptides less than 36 amino acids, short simulations will produce results similar to long simulations.
+      	  </text>
+            </comment>
+            <argpos>4</argpos>
+            <interface type="form" generated="true">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">Type of simulation<a href="#id509854::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <select name="nruns">
+                  <option value="long">long</option>
+                  <option value="short" selected="selected">short</option>
+                </select>
+                <div id="id509854::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+      	    Long simulations correspond to 200 runs.
+      	  </div>
+                  <div>
+      	    Short simulations correspond to 100 runs.
+      	  </div>
+                  <div>
+      	    Usually, for peptides less than 36 amino acids, short simulations will produce results similar to long simulations.
+      	  </div>
+                </div>
+              </label>
+            </interface>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="short" data-datatype="Choice" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="nruns">
+                <a href="#id509854::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id509854::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+      	    Long simulations correspond to 200 runs.
+      	  </div>
+                  <div>
+      	    Short simulations correspond to 100 runs.
+      	  </div>
+                  <div>
+      	    Usually, for peptides less than 36 amino acids, short simulations will produce results similar to long simulations.
+      	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter>
+            <name>sortkey</name>
+            <prompt lang="en">Sort models by</prompt>
+            <type>
+              <datatype>
+                <class>Choice</class>
+              </datatype>
+            </type>
+            <vdef>
+              <value>sOPEP</value>
+            </vdef>
+            <vlist>
+              <velem>
+                <value>sOPEP</value>
+                <label>sOPEP</label>
+              </velem>
+              <velem>
+                <value>tm</value>
+                <label>tm</label>
+              </velem>
+            </vlist>
+            <format>
+              <code proglang="python">" --sortKey %s " % value</code>
+            </format>
+            <comment>
+              <text lang="en">
+      	    Depending on the selected item, clusters will be sorted by:
+      	  </text>
+              <text lang="en">
+      	    sOPEP: sOPEP energy
+      	  </text>
+              <text lang="en">
+      	    tm: apollo predicted TM score.
+      	  </text>
+              <text lang="en">
+      	    The best models returned will follow this sort.
+      	  </text>
+            </comment>
+            <argpos>5</argpos>
+            <interface type="form" generated="true">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">Sort models by<a href="#id512329::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <select name="sortkey">
+                  <option value="sOPEP" selected="selected">sOPEP</option>
+                  <option value="tm">tm</option>
+                </select>
+                <div id="id512329::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+      	    Depending on the selected item, clusters will be sorted by:
+      	  </div>
+                  <div>
+      	    sOPEP: sOPEP energy
+      	  </div>
+                  <div>
+      	    tm: apollo predicted TM score.
+      	  </div>
+                  <div>
+      	    The best models returned will follow this sort.
+      	  </div>
+                </div>
+              </label>
+            </interface>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="sOPEP" data-datatype="Choice" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="sortkey">
+                <a href="#id512329::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id512329::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+      	    Depending on the selected item, clusters will be sorted by:
+      	  </div>
+                  <div>
+      	    sOPEP: sOPEP energy
+      	  </div>
+                  <div>
+      	    tm: apollo predicted TM score.
+      	  </div>
+                  <div>
+      	    The best models returned will follow this sort.
+      	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter>
+            <name>fromto</name>
+            <prompt lang="en">3D reconstruction range </prompt>
+            <interface type="form">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">3D reconstruction range (if needed)<i>
+				(UString)
+			</i>
+                <a href="#id515224::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <input name="fromto" type="text" value=""/>
+                <div id="id515224::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+      	    You can use this field to specify the limits of PEP-FOLD 3D simulation for a sequence larger than 36 residues (and not larger than 50 residues). 
+      	  </div>
+                  <div>
+	    The limits must be specified on the form: x-y (e.g. 15-45), indicating that the 3D models will encompass the region between residues 15 and 45 (included).
+      	  </div>
+                  <div>
+      	    Sequence residues are numbered from 1.
+      	  </div>
+                  <div>
+      	  The total size of the simulation (y - x + 1) cannot exceed 36 residues, and the total size of the sequence cannot exceed 50 residues. By default, the complete sequence is considered if nothing is specified (if it is less than 36 residues).
+      	  </div>
+                  <div>
+      	  Note: It is best to specify larger sequence and to restrain 3D modelling to a specified region than to truncate the amino acid sequence, because the local structure prediction at N- and C- termini can be affected by the truncation. 
+      	  </div>
+                </div>
+              </label>
+            </interface>
+            <type>
+              <datatype>
+                <class>UString</class>
+              </datatype>
+            </type>
+            <format>
+              <code proglang="python">( "" , " --fromTo %s " % str(fromto))[ value is not None]</code>
+            </format>
+            <comment>
+              <text lang="en">
+      	    You can use this field to specify the limits of PEP-FOLD 3D simulation for a sequence larger than 36 residues (and not larger than 50 residues). 
+      	  </text>
+              <text lang="en">
+	    The limits must be specified on the form: x-y (e.g. 15-45), indicating that the 3D models will encompass the region between residues 15 and 45 (included).
+      	  </text>
+              <text lang="en">
+      	    Sequence residues are numbered from 1.
+      	  </text>
+              <text lang="en">
+      	  The total size of the simulation (y - x + 1) cannot exceed 36 residues, and the total size of the sequence cannot exceed 50 residues. By default, the complete sequence is considered if nothing is specified (if it is less than 36 residues).
+      	  </text>
+              <text lang="en">
+      	  Note: It is best to specify larger sequence and to restrain 3D modelling to a specified region than to truncate the amino acid sequence, because the local structure prediction at N- and C- termini can be affected by the truncation. 
+      	  </text>
+            </comment>
+            <argpos>6</argpos>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="fromto">
+                <i>
+				(UString)
+			</i>
+                <a href="#id515224::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id515224::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+      	    You can use this field to specify the limits of PEP-FOLD 3D simulation for a sequence larger than 36 residues (and not larger than 50 residues). 
+      	  </div>
+                  <div>
+	    The limits must be specified on the form: x-y (e.g. 15-45), indicating that the 3D models will encompass the region between residues 15 and 45 (included).
+      	  </div>
+                  <div>
+      	    Sequence residues are numbered from 1.
+      	  </div>
+                  <div>
+      	  The total size of the simulation (y - x + 1) cannot exceed 36 residues, and the total size of the sequence cannot exceed 50 residues. By default, the complete sequence is considered if nothing is specified (if it is less than 36 residues).
+      	  </div>
+                  <div>
+      	  Note: It is best to specify larger sequence and to restrain 3D modelling to a specified region than to truncate the amino acid sequence, because the local structure prediction at N- and C- termini can be affected by the truncation. 
+      	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <!-- <parameter>   -->
+          <!-- 	<name>tto</name>   -->
+          <!-- 	<prompt lang="en">Simulate to </prompt>   -->
+          <!-- 	<type>   -->
+          <!-- 	  <datatype>   -->
+          <!--       <class>String</class>   -->
+          <!--     </datatype>   -->
+          <!--   </type>   -->
+          <!-- 	<format>   -->
+          <!-- 	</format>   -->
+          <!-- 	<comment> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	    You can use this field to make PEP-FOLD simulation not consider all residues, but stop at this specified residue. By default simulation stops at sequence last residue. -->
+          <!-- 	  </text> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	    Sequence residues are numbered from 1. -->
+          <!-- 	  </text> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	  The total size of the simulation (to - from + 1) cannot exceed 35 residues. The total size of the sequence cannot exceed 50 residues. By default, the complete sequence is considered if nothing is specified. -->
+          <!-- 	  </text> -->
+          <!-- 	</comment> -->
+          <!-- 	<ctrl> -->
+          <!-- 	  <message> -->
+          <!-- 	    <text lang="en">You must specify a positive value between 9 and teh size fo the sequence (max 50).</text> -->
+          <!-- 	  </message> -->
+          <!-- 	  <code proglang="python">(tto is None) or ((int(tto) &gt; 9) and (int(ffrom) &lt; 50))</code> -->
+          <!-- 	</ctrl> -->
+          <!-- 	<argpos>7</argpos>   -->
+          <!-- </parameter>   -->
+          <parameter>
+            <name>userSS</name>
+            <prompt lang="en">Input disulfide bond definition (if any)</prompt>
+            <interface type="form">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">Input disulfide bond definition (if any)<i>
+				(UString)
+			</i>
+                <a href="#id519668::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <input name="userSS" type="text" value=""/>
+                <div id="id519668::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    If you know the disulfide bond pairings, you can specify them here.
+	  </div>
+                  <div>
+	    Residues are numbered from 1.
+	  </div>
+                  <div>
+	    A SS bond between residue 1 and 7 would be specified as: 1-7
+	  </div>
+                  <div>
+	    Multiple bonds are separated using a ':'. For instance:
+	    SS bond between residue (1 and 7) and (21 and 28) would be specified as: 1-7:21-28
+	  </div>
+                </div>
+              </label>
+            </interface>
+            <type>
+              <datatype>
+                <class>UString</class>
+              </datatype>
+            </type>
+            <format>
+              <code proglang="python">( "" , " --SSBonds %s " % str(userSS))[ value is not None]</code>
+            </format>
+            <comment>
+              <text lang="en">
+	    If you know the disulfide bond pairings, you can specify them here.
+	  </text>
+              <text lang="en">
+	    Residues are numbered from 1.
+	  </text>
+              <text lang="en">
+	    A SS bond between residue 1 and 7 would be specified as: 1-7
+	  </text>
+              <text lang="en">
+	    Multiple bonds are separated using a ':'. For instance:
+	    SS bond between residue (1 and 7) and (21 and 28) would be specified as: 1-7:21-28
+	  </text>
+            </comment>
+            <argpos>8</argpos>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="userSS">
+                <i>
+				(UString)
+			</i>
+                <a href="#id519668::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id519668::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    If you know the disulfide bond pairings, you can specify them here.
+	  </div>
+                  <div>
+	    Residues are numbered from 1.
+	  </div>
+                  <div>
+	    A SS bond between residue 1 and 7 would be specified as: 1-7
+	  </div>
+                  <div>
+	    Multiple bonds are separated using a ':'. For instance:
+	    SS bond between residue (1 and 7) and (21 and 28) would be specified as: 1-7:21-28
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter>
+            <name>userProx</name>
+            <prompt lang="en">Input residue proximities</prompt>
+            <interface type="form">
+              <label xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="" data-datatype-superclass="" data-biotype="" data-card="" data-formats="">Input residue proximities (if any)<i>
+				(UString)
+			</i>
+                <a href="#id514670::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <input name="userProx" type="text" value=""/>
+                <div id="id514670::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    If you know residue proximities, you can specify them here.
+	    This would enforce energy score when residues are close to each other.
+	  </div>
+                  <div>
+	    Residues are numbered from 1.
+	    A proximity between residue 1 and 7 would be specified as: 1-7
+	  </div>
+                </div>
+              </label>
+            </interface>
+            <type>
+              <datatype>
+                <class>UString</class>
+              </datatype>
+            </type>
+            <format>
+              <code proglang="python">( "" , " --Neighbours %s " % str(userProx))[ value is not None]</code>
+            </format>
+            <comment>
+              <text lang="en">
+	    If you know residue proximities, you can specify them here.
+	    This would enforce energy score when residues are close to each other.
+	  </text>
+              <text lang="en">
+	    Residues are numbered from 1.
+	    A proximity between residue 1 and 7 would be specified as: 1-7
+	  </text>
+            </comment>
+            <argpos>9</argpos>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="UString" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="userProx">
+                <i>
+				(UString)
+			</i>
+                <a href="#id514670::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id514670::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    If you know residue proximities, you can specify them here.
+	    This would enforce energy score when residues are close to each other.
+	  </div>
+                  <div>
+	    Residues are numbered from 1.
+	    A proximity between residue 1 and 7 would be specified as: 1-7
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <!-- <parameter> -->
+          <!-- 	<name>userS2</name> -->
+          <!-- 	<prompt lang="en">Input secondary structure as constraint</prompt> -->
+          <!--   <type> -->
+          <!--     <datatype> -->
+          <!--       <class>Sequence</class> -->
+          <!--     </datatype> -->
+          <!--       <dataFormat>FASTA</dataFormat> -->
+          <!--   </type> -->
+          <!-- 	<format> -->
+          <!-- 	  <code proglang="python">( "" , " -2 " )[ value is not None]</code> -->
+          <!-- 	</format> -->
+          <!--     <comment> -->
+          <!--       <text lang="en"> -->
+          <!--         Experts only. Use this input field to impose - IF POSSIBLE - secondary structure to the prediction. -->
+          <!-- 		The input format is FASTA.  The 3 letter code H (helix), E (extended), C (coil) is used. -->
+          <!-- 		Only H and E are used to filter the cconformations. For more information about this option,  -->
+          <!--         please read the documentation. -->
+          <!--       </text> -->
+          <!--     </comment> -->
+          <!-- 	<argpos>5</argpos> -->
+          <!-- </parameter> -->
+          <parameter>
+            <name>iRef</name>
+            <prompt lang="en">Reference structure</prompt>
+            <type>
+              <biotype>Protein</biotype>
+              <datatype>
+                <class>_3DStructure</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+              <dataFormat>PDB</dataFormat>
+            </type>
+            <format>
+              <code proglang="python">( "", " --ref "+str(iRef) )[ value is not None ]</code>
+            </format>
+            <comment>
+              <text lang="en">
+              Specify here a reference structure (PDB Format). It MUST be the same sequence as submitted as input data. If you specify a 3D reconstruction range, the sequence must match exactly the sequence selected.
+            </text>
+            </comment>
+            <argpos>10</argpos>
+            <interface type="form" generated="true">
+              <xhtml:fieldset xmlns:xhtml="http://www.w3.org/1999/xhtml">
+                <xhtml:legend>Reference structure</xhtml:legend>
+                <xhtml:textarea name="iRef" cols="60" rows="7"> </xhtml:textarea>
+              </xhtml:fieldset>
+            </interface>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="iRef">
+                <i>
+				(Protein _3DStructure)
+			</i>
+                <a href="#id514771::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id514771::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+              Specify here a reference structure (PDB Format). It MUST be the same sequence as submitted as input data. If you specify a 3D reconstruction range, the sequence must match exactly the sequence selected.
+            </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <!-- <parameter> -->
+          <!-- 	<name>criterion</name> -->
+          <!-- 	<prompt lang="en">Compare using</prompt> -->
+          <!--     <type> -->
+          <!--       <datatype> -->
+          <!--         <class>Choice</class> -->
+          <!--       </datatype> -->
+          <!--     </type> -->
+          <!-- 	  <vdef> -->
+          <!-- 	    <value>TMscore</value> -->
+          <!-- 	  </vdef> -->
+          <!-- 	  <vlist> -->
+          <!-- 	    <velem> -->
+          <!-- 	      <value>TMscore</value> -->
+          <!-- 	      <label>TMscore</label> -->
+          <!-- 	    </velem> -->
+          <!-- 	    <velem> -->
+          <!-- 	      <value>cRMSd</value> -->
+          <!-- 	      <label>cRMSd</label> -->
+          <!-- 	    </velem> -->
+          <!-- 	    <velem> -->
+          <!-- 	      <value>GDT_TS</value> -->
+          <!-- 	      <label>GDT_TS</label> -->
+          <!-- 	    </velem> -->
+          <!-- 	  </vlist> -->
+          <!-- 	  <precond> -->
+          <!-- 	    <code proglang="python">iRef is not None</code> -->
+          <!-- 	  </precond> -->
+          <!-- 	<format> -->
+          <!-- 	  <code proglang="python" -->
+          <!--" -->
+          <!-- score %s " % str(criterion)</code> -->
+          <!-- 	</format> -->
+          <!--     <comment> -->
+          <!--       <text lang="en"> -->
+          <!--         Select a score to compare models with the reference structure.  -->
+          <!--       </text> -->
+          <!--       <text lang="en"> -->
+          <!--         cRMSd: alpha carbon RMS deviation. -->
+          <!--       </text> -->
+          <!--       <text lang="en"> -->
+          <!--         TMscore: a normalized score, where 0 means random and 1 identity  -->
+          <!--       </text> -->
+          <!--       <text lang="en"> -->
+          <!--         CGT_TS: a normalized score between 0 and 1, where 0 means random and 1 identity. -->
+          <!--       </text> -->
+          <!--     </comment> -->
+          <!-- <argpos>7</argpos> -->
+          <!-- </parameter> -->
+          <parameter ishidden="1">
+            <name>debug</name>
+            <prompt lang="en">Debug</prompt>
+            <type>
+              <datatype>
+                <class>Filename</class>
+              </datatype>
+            </type>
+            <format>
+              <!-- <code proglang="python"> " &amp;&gt; PEP-FOLD-Mobyle.log"</code> -->
+              <code proglang="python"> " 2&gt; PEP-FOLD-Mobyle.log"</code>
+            </format>
+            <argpos>11</argpos>
+            <interface generated="true" type="job_input">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Filename" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="debug"/>
+            </interface>
+          </parameter>
+        </parameters>
+      </paragraph>
+      <paragraph>
+        <name>Output</name>
+        <prompt>Output</prompt>
+        <parameters>
+          <parameter isout="1">
+            <name>htmlvisu</name>
+            <prompt lang="en">Visualize the best models :</prompt>
+            <type>
+              <datatype>
+                <class>PEPFOLDHTMLVISUReport</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+            </type>
+            <interface type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="width:96%; font-size:9pt; border-left:4px solid #cccccc; border-right:4px solid #cccccc; padding: 0 10px 0 10px; text-align:left;">
+                <h3>Nota bene</h3>
+                <p>
+                To take full advantage of the Jmol viewer, please click on the <b style="color:red;">full screen view</b> button.
+              </p>
+              </div>
+            </interface>
+            <filenames>
+              <code proglang="python">"bestModels.html"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Visualize the top ranked models using Jmol.
+	  </text>
+            </comment>
+          </parameter>
+          <parameter isout="1">
+            <name>htmlclusters</name>
+            <prompt lang="en">Clusters :</prompt>
+            <type>
+              <datatype>
+                <class>PEPFOLDHTMLClusterReport</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+            </type>
+            <interface type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="width:96%; font-size:9pt; border-left:4px solid #cccccc; border-right:4px solid #cccccc; padding: 0 10px 0 10px; text-align:left;">
+                <h3>Nota bene</h3>
+                <p>
+                To browse the html results page more easily, please click on the <b style="color:red;">full screen view</b> button. Then you can also save it by using <b>File &gt; Save
+                Page as</b> of your web browser.
+              </p>
+              </div>
+            </interface>
+            <filenames>
+              <code proglang="python">"clusters.html"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    View the cluster scores and access to model download.
+	  </text>
+            </comment>
+          </parameter>
+          <parameter isout="1">
+            <name>model1</name>
+            <prompt lang="en">Model1 :</prompt>
+            <type>
+              <biotype>Protein</biotype>
+              <datatype>
+                <class>_3DStructure</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+              <dataFormat>PDB</dataFormat>
+            </type>
+            <filenames>
+              <code proglang="python">"model1.pdb"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Cluster 1 best conformation (according to sort criterion - see the clustering report)
+	  </text>
+            </comment>
+            <interface generated="true" type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="model1">
+                <i>
+				(Protein _3DStructure)
+			</i>
+                <a href="#id519840::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id519840::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Cluster 1 best conformation (according to sort criterion - see the clustering report)
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter isout="1">
+            <name>model2</name>
+            <prompt lang="en">Model2 :</prompt>
+            <type>
+              <biotype>Protein</biotype>
+              <datatype>
+                <class>_3DStructure</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+              <dataFormat>PDB</dataFormat>
+            </type>
+            <filenames>
+              <code proglang="python">"model2.pdb"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Cluster 2 best conformation (according to sort criterion - see the clustering report)
+	  </text>
+            </comment>
+            <interface generated="true" type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="model2">
+                <i>
+				(Protein _3DStructure)
+			</i>
+                <a href="#id515871::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id515871::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Cluster 2 best conformation (according to sort criterion - see the clustering report)
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter isout="1">
+            <name>model3</name>
+            <prompt lang="en">Model3 :</prompt>
+            <type>
+              <biotype>Protein</biotype>
+              <datatype>
+                <class>_3DStructure</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+              <dataFormat>PDB</dataFormat>
+            </type>
+            <filenames>
+              <code proglang="python">"model3.pdb"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Cluster 3 best conformation (according to sort criterion - see the clustering report)
+	  </text>
+            </comment>
+            <interface generated="true" type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="model3">
+                <i>
+				(Protein _3DStructure)
+			</i>
+                <a href="#id514948::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id514948::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Cluster 3 best conformation (according to sort criterion - see the clustering report)
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter isout="1">
+            <name>model4</name>
+            <prompt lang="en">Model4 :</prompt>
+            <type>
+              <biotype>Protein</biotype>
+              <datatype>
+                <class>_3DStructure</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+              <dataFormat>PDB</dataFormat>
+            </type>
+            <filenames>
+              <code proglang="python">"model4.pdb"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Cluster 4 best conformation (according to sort criterion - see the clustering report)
+	  </text>
+            </comment>
+            <interface generated="true" type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="model4">
+                <i>
+				(Protein _3DStructure)
+			</i>
+                <a href="#id520473::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id520473::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Cluster 4 best conformation (according to sort criterion - see the clustering report)
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <parameter isout="1">
+            <name>model5</name>
+            <prompt lang="en">Model5 :</prompt>
+            <type>
+              <biotype>Protein</biotype>
+              <datatype>
+                <class>_3DStructure</class>
+                <superclass>AbstractText</superclass>
+              </datatype>
+              <dataFormat>PDB</dataFormat>
+            </type>
+            <filenames>
+              <code proglang="python">"model5.pdb"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Cluster 5 best conformation (according to sort criterion - see the clustering report)
+	  </text>
+            </comment>
+            <interface generated="true" type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="_3DStructure" data-datatype-superclass="AbstractText" data-biotype="Protein " data-card="" data-formats="PDB " data-parametername="model5">
+                <i>
+				(Protein _3DStructure)
+			</i>
+                <a href="#id520540::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id520540::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Cluster 5 best conformation (according to sort criterion - see the clustering report)
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <!-- <parameter isout="1"> -->
+          <!--   <name>clustReport</name> -->
+          <!-- 	<prompt lang="en">Clustering report</prompt> -->
+          <!-- 	<type> -->
+          <!-- 	  <datatype> -->
+          <!-- 	    <class>gClustReport</class> -->
+          <!-- 	    <superclass>AbstractText</superclass> -->
+          <!-- 	  </datatype> -->
+          <!-- 	</type> -->
+          <!-- 	<filenames> -->
+          <!--       <code proglang="python">"clusters.txt"</code> -->
+          <!--   </filenames> -->
+          <!-- 	<comment> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	    Results of the model evaluation and clustering using Apollo (Wang et al., Bioinformatics, 2011) -->
+          <!-- 	  </text> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	    Results are sorted according to the predicted TMscore (tm). The TMscore varies between 0.(random) and 1.(native structure). Largest values are thus expected to correspond to better quality models. -->
+          <!-- 	  </text> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	    the sOPEP energy, the % of constraint satisfaction in the coarse grained representation (CGCNS) and the number of disulfide bonds formed - if any  - (nSS) are also reported.  Note: the constraint satisfaction is presently assessed in the coarse representation. The step back to all atom representation can lead to differences, particularly for the nSS report that is assessed in all atom representation (coarse grained constraint can be satisfied, but the all atom geometry can be incorrect).  -->
+          <!-- 	  </text> -->
+          <!-- 	  <text lang="en"> -->
+          <!-- 	    If a reference file is specified, the TMscore using TMalign and the RMSd are also reported. -->
+          <!-- 	  </text> -->
+          <!-- 	</comment> -->
+          <!-- </parameter> -->
+          <!-- <parameter isout="1"> -->
+          <!--   <name>archive</name> -->
+          <!-- 	<prompt lang="en">Archive of all the models (tgz):</prompt> -->
+          <!--   <type> -->
+          <!--     <datatype> -->
+          <!--       <class>Tarball</class> -->
+          <!--       <superclass>Binary</superclass> -->
+          <!--     </datatype> -->
+          <!--   </type> -->
+          <!-- 	<filenames> -->
+          <!--        <code proglang="python">"AllModels.tgz"</code> -->
+          <!--   </filenames> -->
+          <!-- </parameter> -->
+          <parameter isout="1">
+            <name>PPP</name>
+            <prompt lang="en">Predicted Local Structure Profile</prompt>
+            <type>
+              <datatype>
+                <class>Picture</class>
+                <superclass>Binary</superclass>
+              </datatype>
+            </type>
+            <filenames>
+              <code proglang="python">"*.svmi8.27.prob.probplot.27.png"</code>
+            </filenames>
+            <comment>
+              <text lang="en">
+	    Structural alphabet (SA)prediction profile. 
+	  </text>
+              <text lang="en">
+	    The probabilities, at each position of the sequence, of the 27 SA letters are sorted from helical (red), coil (blue) to extended (green).
+	  </text>
+              <text lang="en">
+	    Note: SA letters are 4 residue length, so the profile is of the size of the amino acid sequence minus 3.
+	  </text>
+            </comment>
+            <interface generated="true" type="job_output">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Picture" data-datatype-superclass="Binary" data-biotype="" data-card="" data-formats="" data-parametername="PPP">
+                <a href="#id520720::comment" class="blindLink commentToggle" onclick="if (typeof portal=='undefined'){var target=document.getElementById(this.getAttribute('href').substr(1)); target.style.display=(target.style.display=='none') ? '':'none';}" title="click to expand/collapse contextual help">?</a>
+                <div id="id520720::comment" class="commentText" style="display:none" mode="ajaxTarget">
+                  <div>
+	    Structural alphabet (SA)prediction profile. 
+	  </div>
+                  <div>
+	    The probabilities, at each position of the sequence, of the 27 SA letters are sorted from helical (red), coil (blue) to extended (green).
+	  </div>
+                  <div>
+	    Note: SA letters are 4 residue length, so the profile is of the size of the amino acid sequence minus 3.
+	  </div>
+                </div>
+              </div>
+            </interface>
+          </parameter>
+          <!-- <parameter isout="1"> -->
+          <!--   <name>logFile</name> -->
+          <!-- 	<prompt lang="en">PepFold log file</prompt> -->
+          <!-- 	<type> -->
+          <!-- 	  <datatype> -->
+          <!-- 	    <class>PepFoldReport</class> -->
+          <!-- 	    <superclass>AbstractText</superclass> -->
+          <!-- 	  </datatype> -->
+          <!-- 	</type> -->
+          <!-- 	<filenames> -->
+          <!--        <code proglang="python">"PEP-FOLD-Mobyle.log"</code> -->
+          <!--   </filenames> -->
+          <!-- </parameter> -->
+          <!-- <parameter isout="1"> -->
+          <!--   <name>besteneSnaps</name> -->
+          <!-- 	<prompt lang="en">Best energy model snaphots</prompt> -->
+          <!-- 	<type> -->
+          <!-- 	  <datatype> -->
+          <!-- 	    <class>Picture</class> -->
+          <!-- 	    <superclass>Binary</superclass> -->
+          <!-- 	  </datatype> -->
+          <!-- 	</type> -->
+          <!-- 	<filenames> -->
+          <!--       <code proglang="python">"PEP-FOLD-Mobyle-bestene.png"</code> -->
+          <!--   </filenames> -->
+          <!-- </parameter> -->
+          <!-- We prefer to present an HTML file composition of snapshots -->
+          <!-- <parameter isout="1"> -->
+          <!--   <name>cenSnaps</name> -->
+          <!-- 	<prompt lang="en">Centroids snaphots</prompt> -->
+          <!-- 	<type> -->
+          <!-- 	  <datatype> -->
+          <!-- 	    <class>Picture</class> -->
+          <!-- 	    <superclass>Binary</superclass> -->
+          <!-- 	  </datatype> -->
+          <!-- 	</type> -->
+          <!-- 	<filenames> -->
+          <!--       <code proglang="python">"*centroid*.png"</code> -->
+          <!--   </filenames> -->
+          <!-- </parameter> -->
+        </parameters>
+        <!-- <layout> -->
+        <!--   <vbox> -->
+        <!-- 	<layout> -->
+        <!-- 	  <hbox> -->
+        <!-- 	    <box>model1</box> -->
+        <!-- 	    <box>model2</box> -->
+        <!-- 	    <box>model3</box> -->
+        <!-- 	    <box>model4</box> -->
+        <!-- 	    <box>model5</box> -->
+        <!-- 	  </hbox> -->
+        <!-- 	</layout>   -->
+        <!-- 	<layout>  	   -->
+        <!-- 	  <hbox> -->
+        <!-- 	    <box>clustReport</box> -->
+        <!-- 	    <box>PPP</box> -->
+        <!-- 	  </hbox> -->
+        <!-- 	</layout>   -->
+        <!-- 	<box>archive</box> -->
+        <!-- 	<box>logFile</box> -->
+        <!--   </vbox> -->
+        <!-- </layout>   -->
+      </paragraph>
+      <parameter isstdout="true">
+        <name>stdout</name>
+        <prompt>Standard output</prompt>
+        <type>
+          <datatype>
+            <class>Report</class>
+          </datatype>
+        </type>
+        <interface type="job_output" generated="true">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Report" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="stdout">
+            <i>
+				(Report)
+			</i>
+          </div>
+        </interface>
+        <filenames>
+          <code proglang="perl">"PEP-FOLD.out"</code>
+          <code proglang="python">"PEP-FOLD.out"</code>
+        </filenames>
+      </parameter>
+      <parameter isout="true">
+        <name>stderr</name>
+        <prompt>Standard error</prompt>
+        <type>
+          <datatype>
+            <class>Report</class>
+          </datatype>
+        </type>
+        <interface type="job_output" generated="true">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="parameter " title="" data-issimple="false" data-ismultiple="false" data-default-value="" data-datatype="Report" data-datatype-superclass="" data-biotype="" data-card="" data-formats="" data-parametername="stderr">
+            <i>
+				(Report)
+			</i>
+          </div>
+        </interface>
+        <filenames>
+          <code proglang="perl">"PEP-FOLD.err"</code>
+          <code proglang="python">"PEP-FOLD.err"</code>
+        </filenames>
+      </parameter>
+    </parameters>
+  </program>
+  <name>http://mobyle.rpbs.univ-paris-diderot.fr/data/services/servers/local/programs/PEP-FOLD.xml</name>
+  <host>http://mobyle.rpbs.univ-paris-diderot.fr</host>
+  <id>http://mobyle.rpbs.univ-paris-diderot.fr/data/jobs/PEP-FOLD/C11508706696033</id>
+  <date>05/30/14  06:58:43</date>
+  <sessionKey>D11435368460894</sessionKey>
+  <data>
+    <input>
+      <parameter>
+        <name>iSeq</name>
+      </parameter>
+      <file>
+        <raw fmt="RAW" size="41">iSeq.data</raw>
+        <fmtProgram>squizz</fmtProgram>
+        <formattedFile fmt="FASTA" size="31">iSeq.fasta</formattedFile>
+      </file>
+    </input>
+    <output>
+      <parameter>
+        <name>htmlclusters</name>
+      </parameter>
+      <file size="21749">clusters.html</file>
+    </output>
+    <output>
+      <parameter>
+        <name>model3</name>
+      </parameter>
+      <file size="16297">model3.pdb</file>
+    </output>
+    <output>
+      <parameter>
+        <name>model2</name>
+      </parameter>
+      <file size="16297">model2.pdb</file>
+    </output>
+    <output>
+      <parameter>
+        <name>model1</name>
+      </parameter>
+      <file size="16297">model1.pdb</file>
+    </output>
+    <output>
+      <parameter>
+        <name>model5</name>
+      </parameter>
+      <file size="16297">model5.pdb</file>
+    </output>
+    <output>
+      <parameter>
+        <name>model4</name>
+      </parameter>
+      <file size="16297">model4.pdb</file>
+    </output>
+    <output>
+      <parameter>
+        <name>PPP</name>
+      </parameter>
+      <file size="19254">PEPFOLD.svmi8.27.prob.probplot.27.png</file>
+    </output>
+    <output>
+      <parameter>
+        <name>htmlvisu</name>
+      </parameter>
+      <file size="3889">bestModels.html</file>
+    </output>
+  </data>
+  <commandLine>PEPFOLD2Exec --autoFromTo -v --sge --HEFilter --parallelposttreatment -s iSeq.fasta -l PEPFOLD --shortcombined --sortKey sOPEP 2&gt; PEP-FOLD-Mobyle.log</commandLine>
+  <status>
+    <value>finished</value>
+    <message/>
+  </status>
+</jobState>
