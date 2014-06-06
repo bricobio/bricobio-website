@@ -1,0 +1,34 @@
+{
+  "globals": {
+    "en" : {
+      "title" : "Bricobio",
+      "brand" : "Bricobio",
+      "contact_email": "thomasingalls@bricobio.org",
+      "uri" : "http://bricobio.org/en/",
+      "navbar" : {
+        "index" : "About",
+        "blog" : "News & Events",
+        "calendar" : "Calendar",
+        "education" : "Education",
+        "projects" : "Projects",
+        "forum" : "Forum",
+        "contact" : "Contact"
+      }
+    },
+    "fr" : {
+      "title" : "Bricobio",
+      "brand" : "Bricobio",
+      "contact_email": "thomasingalls@bricobio.org",
+      "uri" : "http://bricobio.org/fr/",
+      "navbar" : {
+        "index" : "Accueil",
+        "blog" : "Nouvelles & Evenments",
+        "calendar" : "Agenda",
+        "education" : "Formation",
+        "projects" : "Projets",
+        "forum" : "Forum",
+        "contact" : "Contact"
+      }
+    }
+  }
+}
