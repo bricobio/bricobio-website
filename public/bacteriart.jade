@@ -1,0 +1,164 @@
+append css
+    style.
+        .hovercontent {
+          background: transparent;
+          width: 100%;
+          height: 100%;
+          color: transparent;
+        }
+        .hovercontent:hover {
+          background: rgba(0, 0, 0, 0.66);
+          color: white;
+        }
+        .bacteriart-gallery {
+          height: 200px;
+          padding: 0;
+          margin-bottom: 20px;
+        }
+        .hovercontent > .hovertext {
+          display: inline-block;
+          position: relative;
+          top:-100%;
+          left:0;
+          height: 100%;
+          width:100%;
+          z-index:1;
+        }
+        .hovercontent > img {
+          position: relative;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index:-1;
+        }
+
+mixin bacteriart_photo(itemid, project_photo)
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+          .hovercontent.text-center.col-sm-3
+            img(src="/img/bacteriart/2014-06-07/#{ itemid }.png")
+            div.hovertext
+              p TEXT GOES HERE
+
+.jumbotron
+  .container
+    .text-center
+      h1 BacteriArt Gallery
+      h3 From the Montreal Mini Maker Faire, June 7-8, 2014
+      h2 Find your BacteriArt!
+      .col-md-offset-3.col-md-6
+          input.form-control(type='search', id="container-search", placeholder='Type your BacteriArt Code here', style="width: 75%;").pull-left
+          a.btn.btn-primary.btn-large(href="#", style="width: 20%;").pull-right Search
+
+//- #TODO: sanitization of input
+
+
+
+//- for i in #{ ITEM ID _data list }
+
+
+
+.container(id="searchable-container")
+    //- #TODO: Make the background clip to the box, not the margin;
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT for HERE
+    .bacteriart-gallery(style="background-image: url('');").col-sm-3
+      .hovercontent.text-center.col-sm-3
+        img(src="/img/edu_bricobroue.png")
+        div.hovertext
+          p TEXT GOES HERE
+
+
+script(src="./js/jquery.searchable.js")
+script.
+  $(function () {
+    $( '#searchable-container' ).searchable({
+        searchField: '#container-search',
+        selector: '.bacteriart-gallery',
+        childSelector: '.hovertext',
+        show: function( elem ) {
+            elem.slideDown(100);
+        },
+        hide: function( elem ) {
+            elem.slideUp( 100 );
+        }
+    })
+  });
+
+//- #TODO: Get the javascript that goes with holder.js. this would be so useful for working offline!
+//- .col-xs-3.col-sm-3.col-md-3.col-lg-3
+//-     a(href="#").thumbnail
+//-         img(data-src="/js/holder.js/200x200/#999:#fff/text:hello world", alt="").img-responsive
