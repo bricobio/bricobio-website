@@ -1,0 +1,22 @@
+.container
+  br
+  .jumbotron
+    h1 So you want to know more?
+    br
+    .col-md-6 
+        legend Send us an email at hello@bricobio.org 
+    form.form-horizontal(action='//forms.brace.io/bonjour@bricobio.org', method='POST', role='form').col-md-6
+        .form-group
+            legend Send us a quick message!
+        .form-group
+            label.sr-only(for='name') Name
+            input.form-control(type="text", name="name", placeholder="Your Name")
+        .form-group
+            label.sr-only(for='_replyto') Email
+            input.form-control(type="email", name="_replyto", placeholder="your@email.com")
+        .form-group
+            label.sr-only(for='_body') Email message
+            textarea.form-control(name="_body", placeholder="Write a quick message here ...")
+        .form-group
+            button.btn.btn-primary.btn-block(type='submit') Send
+    .clearfix

@@ -1,0 +1,84 @@
+.container
+  .row
+    .col-md-8(role='content')
+      for post, slug in public.posts._data
+        .row
+          .col-sm-12.col-md-10
+            .well
+              h3
+                a(href="/posts/#{ slug }")= post.title
+              p= post.summary
+              h6
+                | Written by 
+                for i in post.author
+                    a(href="#{i}") #{i} 
+                    span and 
+                | &nbsp;on #{post.date_published} 
+                if(post.date_updated != null) 
+                  p: em Updated on #{post.date_updated}
+                //- else
+                //-   em not yet modified
+              a(href="/posts/#{ slug }") Read More »
+
+
+//- Main Page Content and Sidebar 
+  .row
+    // Main Blog Content
+    .large-9.columns(role='content')
+      article
+        h3
+          a(href='#') Blog Post Title
+        h6
+          | Written by 
+          a(href='#') John Smith 
+          | on August 12, 2012.
+        .row
+          .large-6.columns
+            p
+              | Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.
+            p
+              | Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+          .large-6.columns
+            img(src='http://placehold.it/400x240&text=[img]')
+        p
+          | Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        p
+          | Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+      hr
+      article
+        h3
+          a(href='#') Blog Post Title
+        h6
+          | Written by
+          a(href='#') John Smith
+          | on August 12, 2012.
+        .row
+          .large-6.columns
+            p
+              | Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.
+            p
+              | Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+          .large-6.columns
+            img(src='http://placehold.it/400x240&text=[img]')
+        p
+          | Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        p
+          | Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+    //
+       End Main Content 
+
+//- .row
+//-     .column-10.columns
+//-         h1 Here have some news
+//-         p There should be featured items, specified in the data.json 
+//-         p The items should all be sorted by date.
+//-         p Items should be a mix of blog posts, meetings, tweets, etc.
+//-         p each content type SHOULD NOT HAVE its own single-category page
+//-         p Only the items that NEED IT should link to individual pages
+//-         p Items on individual pages require a template for each content type
+//-         ul
+//-             li blog posts in 
+//-                 b posts
+//-             li meetup meetings in 
+//-                 b event pages
+//-         p Items on 
