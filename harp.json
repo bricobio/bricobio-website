@@ -43,18 +43,22 @@
       }
     },
     "urls" : {
-      "google_drive" : ["Google Drive", "https://drive.google.com/#folders/0B3-riWSoYwWuTjBKUDRPeGFOcW8"],
-      "google_groups" : ["Google Groups", "https://groups.google.com/forum/#!forum/bricobio"],
-      "calendar" : ["Calendar", "https://www.google.com/calendar/embed?src=l1nv8tbg54emb1p7a1uvj0kr54%40group.calendar.google.com&ctz=America/Montreal"],
-      "mailing_list" : ["Mailing List", ""],
-      "meetup" : ["Meetup Group", "http://www.meetup.com/DIYBio-Montreal/"],
-      "github" : ["Github", "http://github.com/bricobio"],
-      "trello" : ["Trello", "http://www.trello.com/bricobio"],
-      "google_plus" : ["Google+", "https://plus.google.com/communities/114975262860730642833"],
-      "synbiota" : ["Synbiota", "http://www.bricobio.com/projects/synbiota"],
-      "twitter" : ["Twitter", "https://twitter.com/intent/user?screen_name=bricobiomtl"],
-      "facebook" : ["Facebook", "http://facebook.com/bricobio"],
-      "linkedin" : ["LinkedIn", "http://www.linkedin.com/groups/Bricobio-7433877"]
+      "social":{
+        "meetup" : ["Meetup Group", "http://www.meetup.com/DIYBio-Montreal/"],
+        "twitter" : ["Twitter", "https://twitter.com/intent/user?screen_name=bricobiomtl"],
+        "facebook" : ["Facebook", "http://facebook.com/bricobio"],
+        "linkedin" : ["LinkedIn", "http://www.linkedin.com/groups/Bricobio-7433877"],
+        "gcal" : ["Calendar", "https://www.google.com/calendar/embed?src=l1nv8tbg54emb1p7a1uvj0kr54%40group.calendar.google.com&ctz=America/Montreal"],
+        "gplus" : ["Google+", "https://plus.google.com/communities/114975262860730642833"]
+      },
+      "project":{
+        "drive" : ["Google Drive", "https://drive.google.com/#folders/0B3-riWSoYwWuTjBKUDRPeGFOcW8"],
+        "groups" : ["Google Groups", "https://groups.google.com/forum/#!forum/bricobio"],
+        "mailing_list" : ["Mailing List", ""],
+        "github" : ["Github", "http://github.com/bricobio"],
+        "trello" : ["Trello", "http://www.trello.com/bricobio"],
+        "synbiota" : ["Synbiota", "http://www.bricobio.com/projects/synbiota"]
+      }
     }
   }
 }
