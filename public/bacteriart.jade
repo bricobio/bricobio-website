@@ -33,12 +33,12 @@ append css
           z-index:-1;
         }
 
-mixin bacteriart_photo(itemid, project_photo)
+mixin bacteriartPhoto(itemid)
     .bacteriart-gallery(style="background-image: url('');").col-sm-3
           .hovercontent.text-center.col-sm-3
-            img(src="/img/bacteriart/2014-06-07/#{ itemid }.png")
+            img(src="/img/bacteriart/#{itemid}.jpg")
             div.hovertext
-              p TEXT GOES HERE
+              p #{itemid}
 
 .jumbotron
   .container
@@ -60,86 +60,9 @@ mixin bacteriart_photo(itemid, project_photo)
 
 .container(id="searchable-container")
     //- #TODO: Make the background clip to the box, not the margin;
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT for HERE
-    .bacteriart-gallery(style="background-image: url('');").col-sm-3
-      .hovercontent.text-center.col-sm-3
-        img(src="/img/edu_bricobroue.png")
-        div.hovertext
-          p TEXT GOES HERE
+    -for(var i=0, l = public._data.imagesrc.length; i<l; i++){
+      +bacteriartPhoto(public._data.imagesrc[i])
+    -}
 
 
 script(src="./js/jquery.searchable.js")
