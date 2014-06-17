@@ -19,7 +19,19 @@
                 //- else
                 //-   em not yet modified
               a(href="/posts/#{ slug }") Read More »
+    .col-md-4
+      div(id="gcf-simple", style="width:100%;")
+      p 
+        a(href="http://www.google.com/calendar/render?cid=https://www.google.com/calendar/ical/l1nv8tbg54emb1p7a1uvj0kr54%40group.calendar.google.com/public/basic.ics") Subscribe to this calendar 
+          span.glyphicon.glyphicon-calendar
 
+  
+
+
+script(type="text/javascript").
+  $(function() { $('#gcf-simple').gCalFlow({
+    calid: 'l1nv8tbg54emb1p7a1uvj0kr54@group.calendar.google.com'
+  });});
 
 //- Main Page Content and Sidebar 
   .row

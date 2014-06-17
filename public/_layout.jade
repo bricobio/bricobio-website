@@ -9,25 +9,21 @@ html(lang='en')
     meta(name='copyright', content='2013-2014 Bricobio')
     link(rel='shortcut icon', href='/img/favicon.ico')
 
-    <meta http-equiv="refresh" content="" >
 
     title Bricobio
-
+        
     //- core CSS
-    link(rel='stylesheet', href='css/main.css')
-    script(src="/components/harp-bootstrap/js/tooltip.js")
-    script(src="/js/jquery-2.0.3.min.js")
-    script(src="/js/bootstrap.min.js")
+    link(rel='stylesheet', href='/css/main.css')
+    script(src='//code.jquery.com/jquery.js')
+    script(async, src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script(async, src="/components/harp-bootstrap/js/tooltip.js")
+    script(type="text/javascript" src="/js/jquery.gcal_flow.js")
 
-    //
-       Just for debugging purposes. Don't actually copy this line!
-    //if lt IE 9
-      script(src='../../assets/js/ie8-responsive-file-warning.js')
     //
        HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+      script(src='//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
   body
     != partial('_partials/_navbar.jade')
     != yield
@@ -39,4 +35,5 @@ html(lang='en')
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-51265317-1', 'bricobio.com');
+      ga('require', 'displayfeatures');
       ga('send', 'pageview');

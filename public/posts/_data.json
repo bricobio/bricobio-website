@@ -1,0 +1,64 @@
+{
+    "welcome-to-the-new-website": {
+        "title": "Welcome to the new Bricobio Website!",
+        "summary": "A move away from Wordpress and towards Github for hosting, and we have an easy to maintain website that provides us a lot of opportunity for growth!",
+        "date_published": "2014-01-10",
+        "date_updated": "2014-01-13",
+        "author": {
+            "author_1": "Thomas Ingalls",
+            "author_2": "Kevin Chen"
+        },
+        "authorsocialprofile": {
+            "authorsocialprofile_1": "http://www.twitter.com/thomasingalls",
+            "authorsocialprofile_2": "http://www.twitter.com/bkevinchen"
+        },
+        "thumbnail": "../img/welcome-to-the-new-website_300x300.png"
+    },
+    "genomikon-workshop-part-3": {
+        "title": "Genomikon Workshop, Part 3",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "author": "",
+        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "thumbnail": ""
+    },
+    "genomikon-workshop-part-2": {
+        "title": "Genomikon Workshop, Part 2",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "author": "",
+        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "thumbnail": ""
+    },
+    "genomikon-workshop-part-1": {
+        "title": "Genomikon Workshop, Part 1",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "author": "",
+        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "thumbnail": ""
+    },
+    "happy-inaugural-meeting": {
+        "title": "Happy Inaugural Meeting, DIYbio Montreal!",
+        "summary": "We are excited about the enthusiasm for this group, and we look forward to a year of great ideas and growth.",
+        "date_published": "2013-08-22",
+        "date_updated": "",
+        "author": "Thomas Ingalls",
+        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "thumbnail": ""
+    },
+    "template-for-posts": {
+        "title": "",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "author": "",
+        "authorsocialprofile": "",
+        "thumbnail": ""
+    }
+}
+
+

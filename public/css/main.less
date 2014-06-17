@@ -1,15 +1,36 @@
 @import '../components/harp-bootstrap/less/_bootstrap.less';
 @import '_variables.less';
-
+@import 'jquery.gcal_flow.css';
 
 // Navbar body attributes
 // -------------------------
 body {
 //  padding-top: 90px;  //if navbar fixed top
 //  padding: 0; //if navbar static top
-    margin-bottom:0;
-    padding-bottom:0;
-}   
+  font-family: Lato, sans-serif;
+}
+
+// Jumbotron styles
+// -------------------------
+
+.bgd {
+  background: #000 url('/img/scienceforeveryone1200x400.jpg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 544px; /*same height as jumbotron */
+  left:0;
+  z-index: -1;
+}
+
+.jumbotron-home {
+  height: 544px;
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  background: transparent;
+  font-family: Lato, 'Helvetica Neue', Arial, Sans-serif;
+  font-weight: 900;
+}
+
 
 // Making rows into responsive,  cards
 // -------------------------
@@ -22,12 +43,12 @@ body {
   }*/
 }
 
-// 
+//
 // -------------------------
 
 .googleCalendarIframe {
-  border-width: 0; 
-  width: 100%; 
+  border-width: 0;
+  width: 100%;
   height: 500px;
 
   @media screen and (min-width: @screen-sm-min) {
@@ -35,3 +56,68 @@ body {
   }
 }
 
+
+// special elements
+// ------------------------
+
+.divider {
+  background-color: #fff;
+  background-image: repeating-linear-gradient(60deg, transparent, transparent 7px, rgba(0,0,0,.5) 3px, rgba(0,0,0,.5) 10px);
+  height: 6px;
+  margin-bottom: 12px;
+}
+
+.synbiota {
+  border-width: 0;
+  width: 100%;
+}
+
+// timeline css
+// -------------------------
+
+.timeline {
+  border-left: 5px solid #dddddd;
+  padding: 0 0 3em 0;
+  position: relative; 
+  list-style: none;
+  margin: 0 0 12px 0;
+}
+.timeline:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -1.64em;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #dddddd;
+  border: 5px solid #dddddd; 
+}
+.tl-node {
+  padding: 0 0 0 1em;
+  margin: 0 0 3em 0;
+  position: relative;
+}
+.tl-node a {
+//  display: block; 
+}
+.tl-node:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.95em;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 5px solid #dddddd;
+}
+.tl-stamp {
+  font-size: 0.7em;
+  color: gray; 
+}
+
+// FONTS
+// -------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,100,900);

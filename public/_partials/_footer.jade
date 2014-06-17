@@ -1,3 +1,69 @@
-footer(style="background:rgb(148,187,221);")
-	p &nbsp;
-	br
+footer.bs-footer
+    .divider
+    .container.text-center
+        .col-md-6
+            .h5(style="display:inline;") Projects quick links:
+            a(alt="#{ urls.google_groups[0] }", href="#{ urls.google_groups[1] }", target="_blank")
+                img(src="/img/groups.png", style="height:45px;")
+            a(alt="#{ urls.google_drive[0] }", href="#{ urls.google_drive[1] }", target="_blank")
+                img(src="/img/drive.png", style="height:45px;")
+            a(alt="#{ urls.synbiota[0] }", href="#{ urls.synbiota[1] }", target="_blank")
+                img(src="/img/synbiota.png", style="height:45px;")
+            a(alt="#{ urls.trello[0] }", href="#{ urls.trello[1] }", target="_blank")
+                img(src="/img/trello.png", style="height:45px;")
+            a(alt="#{ urls.github[0] }", href="#{ urls.github[1] }", target="_blank") 
+                img(src="/img/github.png", style="height:45px;")
+        .col-md-6
+            .h5(style="display:inline;") Social media quick links:
+            a(alt="#{ urls.meetup[0] } ", href="#{ urls.meetup[1] }", target="_blank")
+                img(src="/img/meetup.png", style="height:45px;")
+            a(alt="#{ urls.twitter[0] }", href="#{ urls.twitter[1] }", target="_blank")
+                img(src="/img/twitter.png", style="height:45px;")
+            a(alt="#{ urls.google_plus[0] }", href="#{ urls.google_plus[1] }", rel="publisher", target="_blank")
+                img(src="/img/gplus.png", style="height:45px;")
+            a(alt="#{ urls.linkedin[0] }", href="#{ urls.linkedin[1] }", target="_blank")
+                img(src="/img/linkedin.png", style="height:45px;")
+            a(alt="#{ urls.calendar[0] }", href="#{ urls.calendar[1] }", target="_blank") 
+                img(src="/img/gcal.png", style="height:45px;")
+            a(alt="#{ urls.facebook[0] }", href="#{ urls.facebook[1] }", target="_blank")
+                img(src="/img/facebook.png", style="height:45px;")
+    //- 
+            .panel-group(id="accordion")
+                .panel.panel-default
+                    .panel-heading
+                        h5.panel-title 
+                            a(data-toggle="collapse", data-parent="#accordion" href="#collapseOne") Also find Bricobio at these online locations
+                    .panel-collapse.collapse.in(id="collapseOne")
+                        .panel-body
+                            
+                            
+                    .panel-heading
+                        h5.panel-title
+                            a(data-toggle="collapse", data-parent="#accordion" href="#collapseTwo") Check out these other DIYbio spaces!
+                    .panel-collapse.collapse.out(id="collapseTwo")
+                        .panel-body
+                            ul
+                                li Genspace (tw, fb, linkedin, )
+                                li La Paillaise (tw, fb, linkedin, )
+                                li BioCurious (tw, fb, linkedin, )
+                                li DIYbio Toronto (tw, fb, linkedin, )
+                    .panel-heading
+                        h5.panel-title
+                            a(data-toggle="collapse", data-parent="#accordion" href="#collapseThree") Check out these organizations!
+                    .panel-collapse.collapse.out(id="collapseThree")
+                        .panel-body
+                            ul
+                                li Sensorica
+                                li Synbiota
+                                li McGill University
+                                li Université de Montréal
+                                li Concordia University
+                                li Hyasynth Biologicals
+                                li UQAM
+                                li Genome Quebec
+
+                
+    hr
+    .container.text-center
+        p &nbsp; Bricobio, est. 2013
+        br
