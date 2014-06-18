@@ -4,7 +4,7 @@ Development for bricobio.com / bricobio.github.io
 
 ## Contributing to Bricobio.com
 
-**To add a blog entry, please go [here]()** // currently an empty link.
+**To add a blog entry, please go [here](https://github.com/bricobio/bricobio-website/new/master/public/posts)** // currently a broken link.
 
 **To create new pages or refine existing ones**, please follow this guide. Basic familiarity with javascript, HTML, and the command line are needed to understand what's going on inside. (***More details below in Footnotes section.***)
 
