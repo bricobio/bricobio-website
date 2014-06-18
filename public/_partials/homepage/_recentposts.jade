@@ -1,0 +1,19 @@
+h3 Recent Blog Posts
+ul.list-group
+-var k=0
+for post, slug in public.posts._data
+    -if(k<5){//ensures only first 5 posts are shown
+    li.list-group-item 
+        h4 
+            a(href="/posts/#{ slug }")= post.title
+        p=post.summary 
+        p by 
+            -for(var i=0,l=post.authors.length; i<l; i++){
+                a(href="#{post.authorprofile[i] || ''}") #{post.authors[i]}
+                -if(((l>1 && l<3) || i+2===l) && i+1!==l)
+                    span  and 
+                -else if(l>1 && i+1!==l)
+                    span,  
+            -}
+    -k++
+    -}
