@@ -1,96 +1,15 @@
 //- .bgd(style="color:blue;")
 .jumbotron.jumbotron-home
-  .text-center.hidden-md.hidden-sm.hidden-xs
-    img(src='/img/bricobio-aligned-peptide-white-chimera3.jpg')
-    br
-    a(href="./bacteriart.html").btn-lg.btn-danger Find your Bacterial Art!
-      span.glyphicon.glyphicon-chevron-right
-  .text-right
-    h1(style="font-family: Lato; color: black;") Science for everyone.
-    p.lead(style="color:black;") Bricobio, Montreal's first community biology laboratory.
-
-.row
-    ul.list-inline.text-center
-      li(style="margin-bottom:35px;")
-          a(href="#EventsCalendar").btn-lg.btn-success Join us at an upcoming event
-              span.glyphicon.glyphicon-chevron-right
-
-      li(style="margin-bottom:35px;")
-          a(href="#GetInvolved").btn-lg.btn-success Start your project
-              span.glyphicon.glyphicon-chevron-right
-
-      li(style="margin-bottom:35px;")
-          a(href="#GetInvolved").btn-lg.btn-success Join a project
-              span.glyphicon.glyphicon-chevron-right
-
+    !=partial('_partials/homepage/_jumbotron.jade')
 .container-fluid
     .row
         .col-md-3.hidden-sm.hidden-xs
-            h2 Upcoming Events
-            ul.list-group
-                li.list-group-item
-                    h4 Algae Growing Workshop
-                    p Day date time
-                    p Event description
-                li.list-group-item
-                    h4 DIY Electrophoresis Workshop
-                    p Day date time
-                    p Event description
-                li.list-group-item
-                    h4 Analytical DNA Preparations
-                    p Day date time
-                    p Event description
-                li.list-group-item
-                    h4 Saftey Training Session
-                    p Day date time
-                    p Event description
-                li.list-group-item
-                    h4 Photolithographic Microfluidic Circuits Workshop
-                    p Day date time
-                    p Event description
-                li.list-group-item
-                    h4 Bio101 Session One
-                    p Day date time
-                    p Event description
+            !=partial('_partials/homepage/_upcomingevents.jade')
         .col-md-6
             .row
-                h2 Who are we?
-                p We are a group of amateur, professional, student, and hobbyist biologists who aim to revolutionize the way biological science is used in society.
-                p In the near term, we are setting up a wetlab space. We have growing list of projects we are interested in persuing, which can be found on our Trello Projects Page.
-                p In the long-term, we aim to provide a space where anybody with an idea about biology can safely come and test it out. 
-                h2 What are we doing?
-                h2 Why are we doing this?
-                h2 Where to find us:
-                p We meet near the station Rosemont
-                p(onclick="")
-                h2 How to get involved:
-        .col-md-3.hidden-lg.hidden-md.hidden-print
-            h2 Our next event
-            ul.list-group
-                li.list-group-item
-                    h4 Algae Growing Workshop
-                    p day date time
-                    p Event description
+                !=partial("_partials/homepage/_info.jade")        
         .col-md-3.hidden-sm.hidden-xs
-            h2 Recent Blog Posts
-            ul.list-group
-            -var k=0
-            for post, slug in public.posts._data
-                -if(k<5){//ensures only first 5 posts are shown
-                li.list-group-item 
-                    h4 
-                        a(href="/posts/#{ slug }")= post.title
-                    p=post.summary 
-                    p by 
-                        -for(var i=0,l=post.authors.length; i<l; i++){
-                            a(href="#{post.authorprofile[i] || ''}") #{post.authors[i]}
-                            -if(((l>1 && l<3) || i+2===l) && i+1!==l)
-                                span  and 
-                            -else if(l>1 && i+1!==l)
-                                span,  
-                        -}
-                -k++
-                -}
+            !=partial('_partials/homepage/_recentposts.jade')
 .container-fluid
     .row(style="background:rgb(29,33,39);color:rgb(248,231,156);")
         .col-sm-12
