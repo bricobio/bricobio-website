@@ -4,14 +4,8 @@
         "summary": "A move away from Wordpress and towards Github for hosting, and we have an easy to maintain website that provides us a lot of opportunity for growth!",
         "date_published": "2014-01-10",
         "date_updated": "2014-01-13",
-        "author": {
-            "author_1": "Thomas Ingalls",
-            "author_2": "Kevin Chen"
-        },
-        "authorsocialprofile": {
-            "authorsocialprofile_1": "http://www.twitter.com/thomasingalls",
-            "authorsocialprofile_2": "http://www.twitter.com/bkevinchen"
-        },
+        "authors": ["Thomas Ingalls", "Kevin Chen"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls", "http://www.twitter.com/bkevinchen"],
         "thumbnail": "../img/welcome-to-the-new-website_300x300.png"
     },
     "genomikon-workshop-part-3": {
@@ -19,8 +13,8 @@
         "summary": "",
         "date_published": "",
         "date_updated": "",
-        "author": "",
-        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
         "thumbnail": ""
     },
     "genomikon-workshop-part-2": {
@@ -28,8 +22,8 @@
         "summary": "",
         "date_published": "",
         "date_updated": "",
-        "author": "",
-        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "authors": ["Thomas Ingalls", "James Bond", "Kevin Chen"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
         "thumbnail": ""
     },
     "genomikon-workshop-part-1": {
@@ -37,8 +31,8 @@
         "summary": "",
         "date_published": "",
         "date_updated": "",
-        "author": "",
-        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
         "thumbnail": ""
     },
     "happy-inaugural-meeting": {
@@ -46,8 +40,8 @@
         "summary": "We are excited about the enthusiasm for this group, and we look forward to a year of great ideas and growth.",
         "date_published": "2013-08-22",
         "date_updated": "",
-        "author": "Thomas Ingalls",
-        "authorsocialprofile": "http://www.twitter.com/thomasingalls",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
         "thumbnail": ""
     },
     "template-for-posts": {
@@ -55,8 +49,8 @@
         "summary": "",
         "date_published": "",
         "date_updated": "",
-        "author": "",
-        "authorsocialprofile": "",
+        "authors": [""],
+        "authorprofile": [""],
         "thumbnail": ""
     }
 }

@@ -71,37 +71,27 @@
                     h4 Algae Growing Workshop
                     p day date time
                     p Event description
-        .col-md-3.hidden-lg.hidden-md.hidden-print
-            h2 Latest blog post
-            ul.list-group
-                li.list-group-item
-                    h4 Algae Growing Workshop
-                    p day date time
-                    p Event description
         .col-md-3.hidden-sm.hidden-xs
             h2 Recent Blog Posts
             ul.list-group
+            -var k=0
+            for post, slug in public.posts._data
+                -if(k<5){//ensures only first 5 posts are shown
                 li.list-group-item 
-                    h4 Recent blog post 1
-                    p Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                    p by Author Lastname
-                li.list-group-item 
-                    h4 Recent blog post 2
-                    p Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                    p by Author Lastname
-                li.list-group-item
-                    h4 Recent blog post 3
-                    p Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                    p by Author Lastname and Author Otherperson
-
-
-
-
-
-
+                    h4 
+                        a(href="/posts/#{ slug }")= post.title
+                    p=post.summary 
+                    p by 
+                        -for(var i=0,l=post.authors.length; i<l; i++){
+                            a(href="#{post.authorprofile[i] || ''}") #{post.authors[i]}
+                            -if(((l>1 && l<3) || i+2===l) && i+1!==l)
+                                span  and 
+                            -else if(l>1 && i+1!==l)
+                                span,  
+                        -}
+                -k++
+                -}
 .container-fluid
-  
-
     .row(style="background:rgb(29,33,39);color:rgb(248,231,156);")
         .col-sm-12
             h2.text-center
