@@ -10,9 +10,13 @@
               p= post.summary
               h6
                 | Written by 
-                for i in post.author
-                    a(href="#{i}") #{i} 
-                    span and 
+                -for(var i=0,l=post.authors.length; i<l; i++){
+                    a(href="#{post.authorprofile[i] || ''}") #{post.authors[i]}
+                    -if(((l>1 && l<3) || i+2===l) && i+1!==l)
+                      span  and 
+                    -else if(l>1 && i+1!==l)
+                      span,  
+                  -}
                 | &nbsp;on #{post.date_published} 
                 if(post.date_updated != null) 
                   p: em Updated on #{post.date_updated}
