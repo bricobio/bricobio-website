@@ -12,16 +12,14 @@
     ul.nav.navbar-nav.navbar-right
       li(class="#{ current.source == 'index' ? 'active' : '' }")
         a(href='/') !{en.navbar.index}
-      li(class="#{ current.source == 'blog' ? 'active' : '' }") 
-        a(href='/blog.html') !{en.navbar.blog}        
-      li.dropdown        
-        ul.dropdown-menu
-          li(class="#{ current.source == 'blog' ? 'active' : '' }") 
-            a(href='/blog.html') !{en.navbar.blog}        
-          li(class="#{ current.source == 'calendar' ? 'active' : '' }")
-             a(href='/calendar.html') !{en.navbar.calendar}
-        a(href='#' data-toggle='dropdown').dropdown-toggle
-          b.caret
+      li.dropdown(class="#{ current.source == 'blog' ? 'active' : '' }") 
+        a(class="dropdown-toggle" data-toggle="dropdown" href="/blog.html") !{en.navbar.blog} 
+          b.caret       
+          ul.dropdown-menu      
+            li(class="#{ current.source == 'blog' ? 'active' : '' }")
+               a(href='/blog.html') !{en.navbar.blog}
+            li(class="#{ current.source == 'calendar' ? 'active' : '' }")
+               a(href='/calendar.html') !{en.navbar.calendar}
       li(class="#{ current.source == 'education' ? 'active' : '' }")
         a(href='/education.html') !{en.navbar.education}
       li(class="#{ current.source == 'projects' ? 'active' : '' }")
@@ -32,77 +30,3 @@
         a(href='/contact.html') !{en.navbar.contact}
       li
         a(href="#{fr.uri}#{ current.source }.html") FR
-//-
-  .navbar.navbar-static-top.navbar-default(role='navigation')
-        .container
-          .navbar-header
-            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            // a.navbar-brand(href='/index.html') Bricobio
-            a(href='/index.html')
-              img(src="/img/logo.png", style="height:55px;")
-          .navbar-collapse.collapse(style='height: 1px;')
-            ul.nav.navbar-nav.navbar-right
-              li.active
-                a(href='/index.html#news') News &amp; Events
-              li
-                a(href='#education') Education
-              li
-                a(href='#projects') Projects
-              li.dropdown
-                a(href='#', data-toggle='dropdown').dropdown-toggle Quick Links
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a
-                      h5 Links all the places<br/> we are active online.
-                  li
-                    a(href='https://groups.google.com/forum/#!forum/bricobio') Discussions
-                  li
-                    a(href='https://drive.google.com/#folders/0B3-riWSoYwWuTjBKUDRPeGFOcW8') Google Drive
-                  li
-                    a(href='https://www.google.com/calendar/embed?src=l1nv8tbg54emb1p7a1uvj0kr54%40group.calendar.google.com&ctz=America/Montreal') Calendar
-                  li
-                    a(href='http://www.trello.com/bricobio') Trello
-                  li
-                    a(href='https://github.com/bricobio') Github
-                  li.divider
-                  li
-                    a(href='https://plus.google.com/communities/114975262860730642833') Google+ Group
-                  li
-                    a(href='http://www.meetup.com/DIYBio-Montreal/') Meetup Group
-                  li
-                    a(href='https://twitter.com/bricobiomtl') Twitter
-              li
-                a(href="#about") About
-              li
-                a(href="#contact") Get Involved!
-              li.dropdown
-                a(href="#", data-toggle='dropdown').dropdown-toggle Partners
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a(href="http://www.diybio.org")
-                      img(src="/img/mini_diybio.png")
-                      | &nbsp; DIYbio.org
-                  li
-                    a(href="http://www.synbiota.com")
-                      img(src="/img/mini_synbiota.png")
-                      | &nbsp; Synbiota
-                  li
-                    a(href="http://www.sensorica.co")
-                      img(src="/img/mini_sensorica.png")
-                      | &nbsp; Sensorica
-                  li
-                    a(href="http://www.hyasynthbio.com")
-                      img(src="/img/mini_hyasynth.png")
-                      | &nbsp; Hyasynth Biologicals
-          //
-             /.nav-collapse
-        //
-           /.container
-      //
-         /.navbar
