@@ -1,11 +1,9 @@
-.jumbotron
-    h1 outside of container-fluid
-.container
-    .row
+.container-fluid
+    .row 
         .col-md-4.col-sm-12
-            - var tl = public.projects._data.BricoReactor
+            - var tl = public.projects._data.projects.project1.timeline
             
-            h3 #{ en.projects.BricoReactor } Project Timeline
+            h3 #{ public.projects._data.projects.project1.name } Project Timeline
 
             ol.timeline
               for item in tl
@@ -23,5 +21,13 @@
                             - }
         .col-md-8.hidden-sm.hidden-xs.text-center
             h3 Content from the links on the left
-            iframe(name="kcontent", href="/404.html").googleCalendarIframe
+            iframe(id="kcontent", name="kcontent", src="/projects/blankpage.html", style="border:solid 1px black;").googleCalendarIframe
+
+script.
+    $(document).ready(function () {
+        $('#kcontent').on('load', function () {
+            $('#loader1').hide();
+        });
+    });
+
 //- <script src="https://hackpad.com/ZFldzmOj6J3.js"></script><noscript><div>View <a href="https://hackpad.com/ZFldzmOj6J3">Discussion: Embedding</a> on Hackpad.</div></noscript>
