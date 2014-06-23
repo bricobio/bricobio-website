@@ -54,10 +54,30 @@
       "project":{
         "drive" : ["Google Drive", "https://drive.google.com/#folders/0B3-riWSoYwWuTjBKUDRPeGFOcW8"],
         "groups" : ["Google Groups", "https://groups.google.com/forum/#!forum/bricobio"],
-        "mailing_list" : ["Mailing List", ""],
+        "email" : ["Contact Email", "mailto:bonjour@bricobio.org"],
         "github" : ["Github", "http://github.com/bricobio"],
         "trello" : ["Trello", "http://www.trello.com/bricobio"],
         "synbiota" : ["Synbiota", "http://www.bricobio.com/projects/synbiota"]
+      },
+      "sponsors":{
+        "synbiota" : ["Synbiota", "http://www.synbiota.com"],
+        "hyasynth" : ["Hyasynth Biologicals", "http://www.hysynthbio.com"],
+        "sensorica" : ["Sensorica", "http://www.sensorica.co"]
+      },
+      "other_groups": {
+        "Genspace": ["tw, fb, linkedin, etc"],
+        "La Paillaise": ["tw, fb, linkedin, etc"],
+        "BioCurious": ["tw, fb, linkedin, etc"],
+        "DIYbio Toronto" : ["tw, fb, linkedin, etc"],
+        "DIYbio toronto offshoot for kids" : [],
+        "DIYbio Vancouver" : [],
+        "DIYbio Victoria" : [],
+        "group in the netherlands" : [],
+        "group in Cork": [],
+        "group in germany": [],
+        "Berkeley Biolabs": [],
+        "Biohackers LA": [],
+        "others (cf diybio.org)": []
       }
     }
   }

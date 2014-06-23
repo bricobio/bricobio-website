@@ -35,7 +35,8 @@ body {
 // Making rows into responsive,  cards
 // -------------------------
 
-.row {
+.main-page-row {
+  .row;
   margin: 20px;
   min-height: 300px;
   /* @media screen and (min-width: @screen-md-min) {
@@ -60,11 +61,11 @@ body {
 // special elements
 // ------------------------
 
-.divider {
+.divider hr {
+  border: none;
+  border-top: solid 4px darken(#aaa, 10%);
+  color: #ffffff;
   background-color: #fff;
-  background-image: repeating-linear-gradient(60deg, transparent, transparent 7px, rgba(0,0,0,.5) 3px, rgba(0,0,0,.5) 10px);
-  height: 6px;
-  margin-bottom: 12px;
 }
 
 .synbiota {
@@ -115,6 +116,13 @@ body {
 .tl-stamp {
   font-size: 0.7em;
   color: gray; 
+}
+
+// Footer form
+// -------------------------
+
+form#mc-embedded-subscribe-form > .form-group > .input-group {
+  margin: 20px 0 20px 0;
 }
 
 // FONTS

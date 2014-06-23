@@ -1,0 +1,29 @@
+doctype 5
+html(lang='en')
+    head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content="Bricobio, Montreal's DIYbio community.")
+    meta(name='author', content='Bricobio')
+    meta(name='copyright', content='2013-2014 Bricobio')
+    link(rel='shortcut icon', href='/img/favicon.ico')
+
+
+    title Bricobio
+        
+    //- core CSS
+    link(rel='stylesheet', href='/css/main.css')
+    script(src='//code.jquery.com/jquery.js')
+    script(async, src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script(async, src="/components/harp-bootstrap/js/tooltip.js")
+    script(type="text/javascript" src="/js/jquery.gcal_flow.js")
+
+    //
+       HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    != yield
+
