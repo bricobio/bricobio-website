@@ -1,5 +1,7 @@
+.jumbotron
+    h1 Bricobio's Projects
 .container
-  .row
+  .row.text-center
     - for project in public.projects._data.projects
         .panel-primary.col-md-3
             img.panel.img-responsive(src="#{ project.image }")
