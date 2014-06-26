@@ -11,6 +11,7 @@
         "calendar" : "Calendar",
         "education" : "Education",
         "projects" : "Projects",
+        "documents" : "Documents",
         "forum" : "Forum",
         "contact" : "Contact"
       },
@@ -32,6 +33,7 @@
         "calendar" : "Agenda",
         "education" : "Formation",
         "projects" : "Projets",
+        "documents" : "Documents",
         "forum" : "Forum",
         "contact" : "Contact"
       },
