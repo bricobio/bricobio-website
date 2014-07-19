@@ -4,6 +4,7 @@
       "name" : "BricoReactor",
       "pageurl" : "/projects/bricoreactor.html",
       "image" : "/img/prj_bricoreactor.png",
+      "lead_contact" : ["Kevin Chen", "bkevinchen@gmail.com"],
       "timeline": [
         {
           "stamp" : "Point 2",
@@ -23,26 +24,67 @@
       ]
     },
     "project2" : {
-      "name" : "BricoBrew",
+      "name" : "Bricobrew",
       "pageurl" : "/projects/bricobrew.html",
-      "image" : "/img/edu_bricobroue.png",
+      "image" : "/img/bricobrew_workshop_logo.png",
+      "lead_contact" : ["Sarah Choukah", "schoukah@gmail.com"],
       "timeline": [
         {
-          "stamp" : "Summer 2014",
-          "content" : "New Beers with Modified Yeasts: Call for collaborators",
-          "links" : {
-            "link 1" : ""
+          "stamp" : "July 31, 2014 : Bricobrew Summer 2014",
+          "content" : "Bricobrew: First meeting",
+          "links" : { 
+            "Eventbrite" : "https://www.eventbrite.ca/e/opensource-beer-by-bricobio-helios-tickets-12325446743",
+            "Meeting Agenda" : "https://docs.google.com/document/d/1h7xnkythVJFI4ujnCks7EfhbUOwpjHe8SbKLUvnOFkU/edit",
+            "Main Planning Document" : "https://docs.google.com/document/d/1SVzdCfhXk67X4VskAA4SCAG_vcfPy8-fOLhr9Fy2Lao/edit?usp=sharing",
+            "Assigned tasks" : "https://trello.com/b/bRO3S850.html",
+            "Event Planning Checklist" : "https://trello.com/c/JRsT3Fl7.html"
           } 
         },
         {
-          "stamp": "Spring 2014",
+          "stamp" : "Bricobrew Summer 2014",
+          "content" : "Bricobrew: Montreal's Best Open Source Beer",
+          "links" : {
+            "Google drive documents" : "https://drive.google.com/folderview?id=0ByjutUT3qGiqeFJBTS1kRnFxakE&usp=sharing",
+            "Synbiota notebook" : "https://www.synbiota.com/projects/648/",
+            "Main Planning Document" : "https://docs.google.com/document/d/1SVzdCfhXk67X4VskAA4SCAG_vcfPy8-fOLhr9Fy2Lao/edit?usp=sharing"
+          } 
+        },
+        {
+          "stamp": "Bricobrew Spring 2014",
           "content": "Bricobrew Workshops",
           "links": {
-            "View previous work" : "https://docs.google.com/document/d/1zG5uNCZMz6cZpYCcXL5XeI0I4x-XwQ2FdKigsEs9us8/edit?usp=sharing",
-            "View blog posts" : "http://www.bricobio.com/blog/bricobrew-workshop-1.html"
+            "Google drive documents" : "https://drive.google.com/folderview?id=0ByjutUT3qGiqVnZ4bGI0bUJ3Ykk&usp=sharing"
           }
         }
       ]
+    },
+    "project3" : {
+      "name" : "BacteriArt",
+      "pageurl" : "/bacteriart.html",
+      "image" : "/img/bacteriart_logo.png",
+      "lead_contact" : ["Thomas Ingalls", "thomasingalls@gmail.com"],
+      "timeline": [
+        {
+          "stamp" : "July 20, 2014",
+          "content" : "Images sent out! (Wow, that is late.) See the <a href='http://bricobio.com/bacteriart.html'>BacteriArt Page&nbsp;<span class='glyphicon glyphicon-link'><\/span><\/a> to browse all the images!" 
+        },
+        {
+          "stamp" : "s",
+          "content" : "Montreal Mini Maker Faire, 2014",
+          "links" : {
+            "b" : "https://docs.google.com/document/d/1SVzdCfhXk67X4VskAA4SCAG_vcfPy8-fOLhr9Fy2Lao/edit?usp=sharing"
+          } 
+        }
+      ]
+    },
+    "project4" : {
+      "name" : "Minimally modified inkjet printers for biological applications"
+    },
+    "project5" : {
+      "name" : "Microfluidics"
+    },
+    "project6" : {
+      "name" : "Electrophoresis, DIY and otherwise"
     }
   },
   "blankpage" : {
