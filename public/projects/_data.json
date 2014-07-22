@@ -5,6 +5,8 @@
       "pageurl" : "/projects/bricoreactor.html",
       "image" : "/img/prj_bricoreactor.png",
       "lead_contact" : ["Kevin Chen", "bkevinchen@gmail.com"],
+      "status" : "active | paused | completed | for sale | seeking funding | funded | hiring",
+      "description" : "",
       "timeline": [
         {
           "stamp" : "Point 2",
@@ -61,7 +63,7 @@
     "project3" : {
       "name" : "BacteriArt",
       "pageurl" : "/bacteriart.html",
-      "image" : "/img/bacteriart_logo.png",
+      "image" : "/img/bacteriart_project.png",
       "lead_contact" : ["Thomas Ingalls", "thomasingalls@gmail.com"],
       "timeline": [
         {
@@ -78,13 +80,28 @@
       ]
     },
     "project4" : {
-      "name" : "Minimally modified inkjet printers for biological applications"
+      "name" : "Minimally modified inkjet printers for biological applications",
+      "pageurl" : "",
+      "image" : "/img/prj-printer-mod.png"
     },
     "project5" : {
       "name" : "Microfluidics"
     },
     "project6" : {
       "name" : "Electrophoresis, DIY and otherwise"
+    },
+    "project7" : {
+      "name" : "#ScienceHack Violacein Factory - Haliburton Launch",
+      "pageurl" : "",
+      "image" : "/img/prj_sciencehack.png"
+    },
+    "project8" : {
+      "name" : "Genomikon Kit",
+      "pageurl" : "",
+      "image" : "/img/edu_genomikon.png"
+    },
+    "project9" : {
+      "name" : ""
     }
   },
   "blankpage" : {
