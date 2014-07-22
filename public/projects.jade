@@ -3,7 +3,7 @@
 .container
   .row.text-center
     - for project in public.projects._data.projects
-        .panel-primary.col-md-3
+        .panel-primary.col-md-3(style="margin-bottom:20px;")
             img.panel.img-responsive(src="#{ project.image }")
             h1.panel-title 
                 a(href="#{ project.pageurl}") #{ project.name }

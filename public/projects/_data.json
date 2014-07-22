@@ -85,10 +85,16 @@
       "image" : "/img/prj-printer-mod.png"
     },
     "project5" : {
-      "name" : "Microfluidics"
+      "name" : "Microfluidics",
+      "pageurl" : "",
+      "image" : "/img/prj-microfluidics.png"
     },
     "project6" : {
-      "name" : "Electrophoresis, DIY and otherwise"
+      "name" : "Electrophoresis, DIY and otherwise",
+      "pageurl" : "",
+      "image" : "/img/diy-electrophoresis.png",
+      "description" : "",
+      "status" : ""
     },
     "project7" : {
       "name" : "#ScienceHack Violacein Factory - Haliburton Launch",
@@ -99,9 +105,6 @@
       "name" : "Genomikon Kit",
       "pageurl" : "",
       "image" : "/img/edu_genomikon.png"
-    },
-    "project9" : {
-      "name" : ""
     }
   },
   "blankpage" : {
