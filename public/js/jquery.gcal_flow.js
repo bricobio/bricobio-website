@@ -46,7 +46,7 @@
       link_item_title: true,
       link_item_description: false,
       link_target: '_blank',
-      item_description_in_html: false,
+      item_description_as_html: false,
       callback: null,
       no_items_html: '',
       globalize_culture: (typeof navigator !== "undefined" && navigator !== null) && (navigator.browserLanguage || navigator.language || navigator.userLanguage),
@@ -338,7 +338,7 @@
         return methods[method].apply($(this), Array.prototype.slice.call(orig_args, 1));
       });
     } else if (method === 'version') {
-      return "1.2.5";
+      return "1.2.6";
     } else {
       return $.error("Method " + method + " does not exist on jQuery.gCalFlow");
     }
