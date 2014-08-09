@@ -6,6 +6,11 @@
       "image" : "/img/prj_bricoreactor.png",
       "lead_contact" : ["Kevin Chen", "bkevinchen@gmail.com"],
       "status" : "active | paused | completed | for sale | seeking funding | funded | hiring",
+      "last_update" : "datetime",
+      "featured" : true,
+      "mailing_list" : {
+        "signup_form" : "<form></form>"
+      },
       "description" : "",
       "timeline": [
         {
