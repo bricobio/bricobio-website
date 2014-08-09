@@ -1,6 +1,85 @@
-h3 Upcoming Events
 script(type="text/javascript").
-  $(function() { $('#gcf-simple').gCalFlow({
-    calid: 'l1nv8tbg54emb1p7a1uvj0kr54@group.calendar.google.com'
-  });});
-div(id="gcf-simple", style="width:100%;height:600px;")
+  $(function() { 
+
+    $('#gcf-events').gCalFlow({
+      calid: 'l1nv8tbg54emb1p7a1uvj0kr54@group.calendar.google.com',
+      mode: 'upcoming',
+      maxitem: 3,
+      auto_scroll: false,
+      item_description_as_html: true,
+      daterange_formatter: function (start_date, end_date, allday_p) {
+        function pad(n) { return n < 10 ? "0"+n : n; }
+        return pad(start_date.getMonth()+1) + "/" + pad(start_date.getDate()) + " - " + pad(end_date.getMonth()+1) + "/" + pad(end_date.getDate());
+      },
+      callback: function() {$(".gcf-item-description").linkify({newLine: '<br>'})}
+    });
+    $('#gcf-organization').gCalFlow({
+      calid: '0o4hntb479n0klskf8c7dop0e0@group.calendar.google.com',
+      mode: 'upcoming',
+      maxitem: 5,
+      auto_scroll: false,
+      item_description_as_html: true,
+      callback: function() {$(".gcf-item-description").linkify({newLine: '<br>'})}
+    });
+
+    $('#gcf-events a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+    $('#gcf-organization a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+    
+  });
+  
+
+//-
+ Nav tabs 
+ul.nav.nav-tabs(role='tablist', style="width:90%;margin-left:8%;border-bottom:solid 2px white;z-index: 5;")
+  li.active
+    a(href='#gcf-events', role='tab', data-toggle='tab') Upcoming Events
+  li
+    a(href='#gcf-organization', role='tab', data-toggle='tab') Organization
+//-
+   Tab panes 
+.tab-content.col-xs-12.thumbnail(style="top:-1px;")
+  #gcf-events.tab-pane.active.fade.in()
+    .scroll-container
+      .gcf-item-container-block
+        .gcf-item-block.row(style="padding:0; margin: 20px auto;")
+          .gcf-item-date-block(style="width: 85px; height: 100px; text-align: center; float: left; border: solid 1px blue; margin-right: 10px;")
+            .gcf-item-date.gcf-item-start-date 00/00
+          .gcf-item-header-block
+            .gcf-item-title-block
+              h4.gcf-item-title(style="word-wrap:break-word;") Item Title of each event
+              p.gcf-item-location(style="word-wrap:break-word;") Address of the event
+          .clearfix
+
+          .gcf-item-description(style="margin-left:20px;margin-top:10px;")
+            p Description of the event
+    .gcf-header-block
+      .gcf-title-block
+        h5 Subscribe to the 
+          span.gcf-title replaced with calendar name
+
+  #gcf-organization.tab-pane.fade
+    .scroll-container
+      .gcf-item-container-block
+        .gcf-item-block.row(style="padding:0; margin: 20px auto;")
+          .gcf-item-date-block(style="width: 85px; height: 100px; text-align: center; float: left; border: solid 1px blue; margin-right: 10px;")
+            .gcf-item-date.gcf-item-start-date 00/00
+          .gcf-item-header-block
+            .gcf-item-title-block
+              h4.gcf-item-title(style="word-wrap:break-word;") Item Title of each event
+              p.gcf-item-location(style="word-wrap:break-word;") Address of the event
+          .clearfix
+
+          .gcf-item-description(style="margin-left:20px;margin-top:10px;")
+            p Description of the event
+    .gcf-header-block
+      .gcf-title-block
+        h5 Subscribe to the 
+          span.gcf-title replaced with calendar name    
+
+

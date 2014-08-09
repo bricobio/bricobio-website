@@ -1,16 +1,21 @@
 .jumbotron.jumbotron-home
     !=partial('_partials/homepage/_jumbotron.jade')
+.clearfix
 .container-fluid
     .main-page-row
         .col-md-3.hidden-sm.hidden-xs
             !=partial('_partials/homepage/_upcomingevents.jade')
         .col-md-6
             .row
+                !=partial('_partials/homepage/_featured-projects.jade')
+            //.row
+                !=partial('_partials/homepage/_featured-events.jade')
+            .row
                 !=partial("_partials/homepage/_info.jade")        
         .col-md-3.hidden-sm.hidden-xs
             !=partial('_partials/homepage/_recentposts.jade')
 //- .container-fluid
-    !=partial('_partials/homepage/_newsevents.jade')
+    
     !=partial('_partials/homepage/_edu.jade')
     !=partial('_partials/homepage/_proj.jade')
     !=partial('_partials/homepage/_other.jade')
