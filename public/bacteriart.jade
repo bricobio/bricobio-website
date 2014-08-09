@@ -28,15 +28,15 @@ append css
           position: relative;
           top: 0;
           left: 0;
-          height: 100%;
-          width: 100%;
           z-index:-1;
         }
+
+
 
 mixin bacteriartPhoto(itemid)
     .bacteriart-gallery(style="background-image: url('');").col-sm-3
           .hovercontent.text-center.col-sm-3
-            img(src="/img/bacteriart/#{itemid}.jpg")
+            img.img-responsive(class="lazy", src="/img/bacteriart/#{itemid}")
             div.hovertext
               p #{itemid}
 
@@ -60,12 +60,12 @@ mixin bacteriartPhoto(itemid)
 
 .container(id="searchable-container")
     //- #TODO: Make the background clip to the box, not the margin;
-    -for(var i=0, l = public._data.imagesrc.length; i<l; i++){
-      +bacteriartPhoto(public._data.imagesrc[i])
+    -for(var i=0, l = public._data.imagesrc2.length; i<l; i++){
+      +bacteriartPhoto(public._data.imagesrc2[i])
     -}
 
-
-script(src="./js/jquery.searchable.js")
+script(src="/js/jquery.lazyload.js" type="text/javascript")
+script(src="/js/jquery.searchable.js" type="text/javascript")
 script.
     $( '#searchable-container' ).searchable({
         searchField: '#container-search',
@@ -77,8 +77,8 @@ script.
         hide: function( elem ) {
             elem.slideUp( 100 );
         }
-    })
-  });
+      })
+    });
 
 //- #TODO: Get the javascript that goes with holder.js. this would be so useful for working offline!
 //- .col-xs-3.col-sm-3.col-md-3.col-lg-3
