@@ -1,0 +1,86 @@
+{
+  "globals": {
+    "en" : {
+      "title" : "Bricobio",
+      "brand" : "Bricobio",
+      "contact_email": "thomasingalls@bricobio.org",
+      "uri" : "http://bricobio.com/en/",
+      "navbar" : {
+        "index" : "About",
+        "blog" : "News & Events",
+        "calendar" : "Calendar",
+        "education" : "Education",
+        "projects" : "Projects",
+        "documents" : "Documents",
+        "forum" : "Forum",
+        "contact" : "Contact"
+      },
+      "projects" : {
+        "BricoReactor" : "BricoReactor",
+        "DIYbio101" : "Biohacking 101",
+        "basics" : "The Basics",
+        "BricoBrew" : "BricoBrew"
+      }
+    },
+    "fr" : {
+      "title" : "Bricobio",
+      "brand" : "Bricobio",
+      "contact_email": "thomasingalls@bricobio.org",
+      "uri" : "http://bricobio.com/fr/",
+      "navbar" : {
+        "index" : "Accueil",
+        "blog" : "Nouvelles & Evenments",
+        "calendar" : "Agenda",
+        "education" : "Formation",
+        "projects" : "Projets",
+        "documents" : "Documents",
+        "forum" : "Forum",
+        "contact" : "Contact"
+      },
+      "projects" : {
+        "project_name" : "BricoRéacteur",
+        "DIYbio101" : "Biohacking 101",
+        "basics" : "Les bases",
+        "BricoBrew" : "BricoBrew"
+      }
+    },
+    "urls" : {
+      "social":{
+        "meetup" : ["Meetup Group", "http://www.meetup.com/DIYBio-Montreal/"],
+        "twitter" : ["Twitter", "https://twitter.com/intent/user?screen_name=bricobiomtl"],
+        "facebook" : ["Facebook", "http://facebook.com/bricobio"],
+        "linkedin" : ["LinkedIn", "http://www.linkedin.com/groups/Bricobio-7433877"],
+        "gcal" : ["Calendar", "https://www.google.com/calendar/embed?src=l1nv8tbg54emb1p7a1uvj0kr54%40group.calendar.google.com&ctz=America/Montreal"],
+        "gplus" : ["Google+", "https://plus.google.com/communities/114975262860730642833"]
+      },
+      "project":{
+        "drive" : ["Google Drive", "https://drive.google.com/#folders/0B3-riWSoYwWuTjBKUDRPeGFOcW8"],
+        "groups" : ["Google Groups", "https://groups.google.com/forum/#!forum/bricobio"],
+        "email" : ["Contact Email", "mailto:bonjour@bricobio.org"],
+        "github" : ["Github", "http://github.com/bricobio"],
+        "trello" : ["Trello", "http://www.trello.com/bricobio"],
+        "synbiota" : ["Synbiota", "http://www.bricobio.com/projects/synbiota"]
+      },
+      "sponsors":{
+        "synbiota" : ["Synbiota", "http://www.synbiota.com"],
+        "hyasynth" : ["Hyasynth Biologicals", "http://www.hysynthbio.com"],
+        "sensorica" : ["Sensorica", "http://www.sensorica.co"]
+      },
+      "other_groups": {
+        "Genspace": ["tw, fb, linkedin, etc"],
+        "La Paillaise": ["tw, fb, linkedin, etc"],
+        "BioCurious": ["tw, fb, linkedin, etc"],
+        "DIYbio Toronto" : ["tw, fb, linkedin, etc"],
+        "DIYbio toronto offshoot for kids" : [],
+        "DIYbio Vancouver" : [],
+        "DIYbio Victoria" : [],
+        "group in the netherlands" : [],
+        "group in Cork": [],
+        "group in germany": [],
+        "Berkeley Biolabs": [],
+        "Biohackers LA": [],
+        "others (cf diybio.org)": []
+      }
+    }
+  }
+}

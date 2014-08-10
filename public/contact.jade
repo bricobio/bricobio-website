@@ -1,0 +1,29 @@
+.container
+  br
+  .jumbotron
+    h1 So you want to know more?
+    br
+    .col-md-6 
+        p Send us an email at 
+            a(href="mailto:bonjour@bricobio.org") bonjour@bricobio.org
+        p Also follow us on Twitter: 
+            a(href="https://twitter.com/bricobiomtl", target="_blank") @bricobiomtl
+        p sign up for our 
+            a(href="http://www.meetup.com/DIYbio-Montreal", target="_blank") Meetup Group
+        p or for our mailing list
+            
+    form.form-horizontal(action='//forms.brace.io/bonjour@bricobio.org', method='POST', role='form').col-md-6
+        .form-group
+            legend Send us a quick message!
+        .form-group
+            label.sr-only(for='name') Name
+            input.form-control(type="text", name="name", placeholder="Your Name")
+        .form-group
+            label.sr-only(for='_replyto') Email
+            input.form-control(type="email", name="_replyto", placeholder="your@email.com")
+        .form-group
+            label.sr-only(for='_body') Email message
+            textarea.form-control(name="_body", placeholder="Write a quick message here ...")
+        .form-group
+            button.btn.btn-primary.btn-block(type='submit') Send
+    .clearfix

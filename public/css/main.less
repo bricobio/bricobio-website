@@ -1,20 +1,50 @@
 @import '../components/harp-bootstrap/less/_bootstrap.less';
 @import '_variables.less';
-
+@import 'jquery.gcal_flow.css';
 
 // Navbar body attributes
 // -------------------------
 body {
 //  padding-top: 90px;  //if navbar fixed top
 //  padding: 0; //if navbar static top
-    margin-bottom:0;
-    padding-bottom:0;
-}   
+  font-family: Lato, sans-serif;
+}
+
+// Jumbotron styles
+// -------------------------
+
+.bgd {
+  background: #000 url('/img/scienceforeveryone1200x400.jpg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 544px; /*same height as jumbotron */
+  left:0;
+  z-index: -1;
+}
+
+.jumbotron-home {
+  height: 400px;
+  color: #fff;
+  text-shadow: #444 0 1px 1px;
+  background: transparent;
+  font-family: Lato, 'Helvetica Neue', Arial, Sans-serif;
+  font-weight: 900;
+  background: rgb(9, 6, 8) right center url('/img/main-jumbotron-bkg.png') no-repeat;
+}
+
+.jumbotron-buttons-li {
+  margin-bottom:35px;
+  @media screen and (max-width: @screen-sm-min) {
+    margin-bottom: 10px;
+  }
+}
+
 
 // Making rows into responsive,  cards
 // -------------------------
 
-.row {
+.main-page-row {
+  .row;
   margin: 20px;
   min-height: 300px;
   /* @media screen and (min-width: @screen-md-min) {
@@ -22,12 +52,12 @@ body {
   }*/
 }
 
-// 
+//
 // -------------------------
 
 .googleCalendarIframe {
-  border-width: 0; 
-  width: 100%; 
+  border-width: 0;
+  width: 100%;
   height: 500px;
 
   @media screen and (min-width: @screen-sm-min) {
@@ -35,3 +65,213 @@ body {
   }
 }
 
+
+// special elements
+// ------------------------
+
+.divider hr {
+  border: none;
+  border-top: solid 4px darken(#aaa, 10%);
+  color: #ffffff;
+  background-color: #fff;
+}
+
+.synbiota {
+  border-width: 0;
+  width: 100%;
+}
+
+// timeline css
+// -------------------------
+
+.timeline {
+  border-left: 5px solid #dddddd;
+  padding: 0 0 3em 0;
+  position: relative; 
+  list-style: none;
+  margin: 0 0 12px 0;
+}
+.timeline:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -1.64em;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #dddddd;
+  border: 5px solid #dddddd; 
+}
+.tl-node {
+  padding: 0 0 0 1em;
+  margin: 0 0 3em 0;
+  position: relative;
+}
+.tl-node a {
+//  display: block; 
+}
+.tl-node:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.95em;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 5px solid #dddddd;
+}
+.tl-stamp {
+  font-size: 0.7em;
+  color: gray; 
+}
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;   
+}
+
+// Footer form
+// -------------------------
+
+form#mc-embedded-subscribe-form > .form-group > .input-group {
+  margin: 20px 0 20px 0;
+}
+
+// FONTS
+// -------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,100,900);
+
+// Ribbon banner
+// -------------------------
+
+
+.border-box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; 
+}
+
+.content-box {
+  width: 100%; /* assumes you have this in a container with a set width */
+  height: 400px;
+  margin: 0 auto;
+  position: relative; /* So we can position the banner within the box */
+  background: gray;
+  border: 5px solid white;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  .border-box
+}
+
+#ribbon-container {
+  position: absolute;
+  top: 65px;
+  right: -10px;
+  overflow: visible; /* so we can see the pseudo-elements we're going to add to the anchor */
+  font-size: 18px; /* font-size and line-height must be equal so we can account for the height of the banner */
+  line-height: 18px;
+
+  @media screen and (max-width: @screen-sm-min) {
+    top: 55px;
+    width: 100%;
+    right: 0px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .border-box
+}
+
+#ribbon-container:before {
+  content:"";
+  height: 0;
+  width: 0;
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  border-top: 29px solid rgba(0,0,0,.3); /* These 4 border properties create the first part of our drop-shadow */
+  border-bottom: 29px solid rgba(0,0,0,.3); 
+  border-right: 29px solid rgba(0,0,0,.3);
+  border-left: 29px solid transparent;
+}
+
+#ribbon-container:after { /* This adds the second part of our dropshadow */
+  content:"";
+  height: 3px;
+  background: rgba(0,0,0,.3);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 58px;
+  right:3px;
+
+  @media screen and (max-width: @screen-sm-min) {
+    left: 40px;
+  }
+}
+
+#ribbon-container a {
+  display: block;
+  padding: 20px;
+  position: relative; /* allows us to position our pseudo-elements properly */
+  background: #0089d0;
+  overflow: visible;
+  height: 58px;
+  margin-left: 29px;
+  color: #fff;
+  text-decoration: none;
+  
+  @media screen and (max-width: @screen-sm-min) {
+    padding: 15px;
+    height: 40px;
+    margin-left: 0px;
+  }
+
+  .border-box
+}
+
+/*
+  #ribbon-container a:after { /* this creates the "folded" part of our ribbon 
+    content:""; 
+    height: 0;
+    width: 0;
+    display:block;
+    position:absolute;
+    bottom:-15px;
+    right:0;
+    border-top: 15px solid #004a70; 
+    border-right: 15px solid transparent;
+  }
+*/
+
+#ribbon-container a:before { /* this creates the "forked" part of our ribbon */
+  content:"";
+  height: 0;
+  width: 0;
+  display:block;
+  position:absolute;
+  top:0;
+  left:-29px;
+  border-top: 29px solid #0089d0; 
+  border-bottom: 29px solid #0089d0; 
+  border-right: 29px solid transparent;
+  border-left: 29px solid transparent;
+
+  @media screen and (max-width: @screen-sm-min) {
+    border-top: 0 solid #0089d0; 
+    border-bottom: 0 solid #0089d0; 
+    border-right: 0 solid transparent;
+    border-left: 0 solid transparent;
+  }
+}
+
+#ribbon-container a:hover {
+  background:#009ff1;
+}
+
+#ribbon-container a:hover:before { /* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
+  border-top: 29px solid #009ff1; 
+  border-bottom: 29px solid #009ff1;
+}

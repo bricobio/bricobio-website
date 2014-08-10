@@ -1,0 +1,67 @@
+{
+    "bricobrew-workshop-v2_1": {
+        "title": "Bricobrew Workshop, Summer 2014",
+        "summary": "A move away from Wordpress and towards Github for hosting, and we have an easy to maintain website that provides us a lot of opportunity for growth!",
+        "date_published": "2014-01-10",
+        "date_updated": "2014-01-13",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
+        "thumbnail": "../img/bricobrew_workshop_logo.png"
+    },
+    "welcome-to-the-new-website": {
+        "title": "Welcome to the new Bricobio Website!",
+        "summary": "An enormous thank you to Zaf for all his contributions to the reinvigorated website!",
+        "date_published": "2014-07-01",
+        "date_updated": "2014-07-18",
+        "authors": ["Thomas Ingalls", "Zafarali Ahmed"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls", "https://github.com/zafarali"],
+        "thumbnail": "../img/welcome-to-the-new-website_300x300.png"
+    },
+    "genomikon-workshop-part-3": {
+        "title": "Genomikon Workshop, Part 3",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
+        "thumbnail": ""
+    },
+    "genomikon-workshop-part-2": {
+        "title": "Genomikon Workshop, Part 2",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "authors": ["Thomas Ingalls", "James Bond", "Kevin Chen"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
+        "thumbnail": ""
+    },
+    "genomikon-workshop-part-1": {
+        "title": "Genomikon Workshop, Part 1",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
+        "thumbnail": ""
+    },
+    "happy-inaugural-meeting": {
+        "title": "Happy Inaugural Meeting, DIYbio Montreal!",
+        "summary": "We are excited about the enthusiasm for this group, and we look forward to a year of great ideas and growth.",
+        "date_published": "2013-08-22",
+        "date_updated": "",
+        "authors": ["Thomas Ingalls"],
+        "authorprofile": ["http://www.twitter.com/thomasingalls"],
+        "thumbnail": ""
+    },
+    "template-for-posts": {
+        "title": "",
+        "summary": "",
+        "date_published": "",
+        "date_updated": "",
+        "authors": [""],
+        "authorprofile": [""],
+        "thumbnail": ""
+    }
+}
+
+

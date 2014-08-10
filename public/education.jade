@@ -1,0 +1,9 @@
+.jumbotron
+  h1.page-header Educational materials
+.container
+    .row
+      - for project in public.education._data.projects
+        .panel-primary.col-md-3
+          img.panel.img-responsive(src="#{ project.image }")
+          h1.panel-title 
+            a(href="#{ project.pageurl }") #{ project.name }

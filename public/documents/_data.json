@@ -1,0 +1,12 @@
+{
+    "diybio-code-of-ethics-europe" : {
+        "layout" : "_infopage.jade",
+        "pageurl" : "/documents/diybio-code-of-ethics-europe",
+        "title" : "DIYbio Code of Ethics - Europe (2011 Draft)"
+    },  
+    "diybio-code-of-ethics-north-america" : {
+        "layout" : "_infopage.jade",
+        "pageurl" : "/documents/diybio-code-of-ethics-north-america",
+        "title":"DIYbio Code of Ethics - North America (2011 Draft)"
+    }
+}

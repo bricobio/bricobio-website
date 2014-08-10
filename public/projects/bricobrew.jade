@@ -1,0 +1,31 @@
+.container-fluid
+    .row 
+        .col-md-4.col-sm-12
+            - var tl = public.projects._data.projects.project2.timeline
+            
+            h3 #{ public.projects._data.projects.project2.name } Project Timeline
+
+            ol.timeline
+              for item in tl
+                li.tl-node
+                    .tl-stamp #{ item.stamp }
+                    .tl-content
+                        h5 #{ item.content }
+                        ul.list-unstyled
+                            - for (var label in item.links) {
+                                li.hidden-sm.hidden-xs
+                                    a.btn.btn-sm.btn-primary(href="#{ item.links[label] }", style="margin: 0 6px 6px 0;", target="kcontent") #{ label }
+                                    a(href="#{ item.links[label] }", target="_blank").glyphicon.glyphicon-new-window
+                                li.hidden-md.hidden-lg
+                                    a.btn.btn-sm.btn-primary(href="#{ item.links[label] }", style="margin: 0 6px 6px 0;") #{ label }
+                            - }
+        .col-md-8.hidden-sm.hidden-xs.text-center
+            h3 Content from the links on the left
+            iframe(id="kcontent", name="kcontent", src="/projects/blankpage.html", style="border:solid 1px black;").googleCalendarIframe
+
+script.
+    $(document).ready(function () {
+        $('#kcontent').on('load', function () {
+            $('#loader1').hide();
+        });
+    });

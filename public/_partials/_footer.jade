@@ -1,3 +1,52 @@
-footer(style="background:rgb(148,187,221);")
-	p &nbsp;
-	br
+footer.bs-footer
+    .divider
+        hr
+    .container-fluid
+      .row.text-center
+        .col-md-4
+            h5 Projects quick links:
+            - for(var website in urls.project){
+            a(alt="#{urls.project[website][0]}", href="#{urls.project[website][1]}", target="_blank")
+                img(src="/img/#{website}.png", style="height:45px;")
+            -}            
+        .col-md-5
+            h5 Social media quick links:
+            - for(var website in urls.social){
+            a(alt="#{urls.social[website][0]}", href="#{urls.social[website][1]}", target="_blank")
+                img(src="/img/#{website}.png", style="height:45px;")
+            -}
+        .col-md-3
+            h5 Sponsors:
+            - for(var website in urls.sponsors){
+            a(alt="#{urls.sponsors[website][0]}", href="#{urls.sponsors[website][1]}", target="_blank")
+                img(src="/img/#{website}.png", style="height:45px;")
+            -}
+      .clearfix.divider
+        hr
+      //-.row
+        // Begin MailChimp Signup Form
+        div.col-md-offset-2.col-md-8#optin
+          form#mc-embedded-subscribe-form.validate(action='http://kolakube.us2.list-manage.com/subscribe/post?u=ba2d7d2ff28fe4f2581509340&id=a355e20f0d', method='post', name='mc-embedded-subscribe-form', target='_blank')
+            h4 Subscribe to our mailing list to hear about special events:
+            .form-group
+              .input-group.form-horizontal.col-sm-4
+                span.input-group-addon
+                  span.glyphicon.glyphicon-envelope
+                input#mce-EMAIL.required.email.form-control(type='email', placeholder='your email address', name='EMAIL')
+              .input-group.form-horizontal.col-sm-4
+                span.input-group-addon
+                  span.glyphicon.glyphicon-user
+                input#mce-FNAME.form-control(type='text', placeholder='your name', name='NAME')
+              #mce-responses.clear
+                #mce-error-response.response(style='display: none;')
+                #mce-success-response.response(style='display: none;')
+              .input-group.col-sm-4
+                button#mc-embedded-subscribe.btn.btn-primary.form-control(type='submit', name='subscribe') Submit
+        // End mc_embed_signup
+            br
+                
+    .container-fluid.text-center(style="background-color:#aaa;")
+        br
+        br
+        p &nbsp; Bricobio, est. 2013
+        br

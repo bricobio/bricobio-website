@@ -1,0 +1,118 @@
+{
+  "projects" : {
+    "project1" : {
+      "name" : "BricoReactor",
+      "pageurl" : "/projects/bricoreactor.html",
+      "image" : "/img/prj_bricoreactor.png",
+      "lead_contact" : ["Kevin Chen", "bkevinchen@gmail.com"],
+      "status" : "active | paused | completed | for sale | seeking funding | funded | hiring",
+      "last_update" : "datetime",
+      "featured" : true,
+      "mailing_list" : {
+        "signup_form" : "<form></form>"
+      },
+      "description" : "",
+      "timeline": [
+        {
+          "stamp" : "Point 2",
+          "content" : "Second point",
+          "links" : {
+            "link 1" : "http://www.google.com"
+          } 
+        },
+        {
+          "stamp": "Start",
+          "content": "Synbiota notebook",
+          "links": {
+            "View notebook" : "https://www.synbiota.com/projects/428",
+            "View previous work" : "https://docs.google.com/document/d/1zG5uNCZMz6cZpYCcXL5XeI0I4x-XwQ2FdKigsEs9us8/edit?usp=sharing"
+          }
+        }
+      ]
+    },
+    "project2" : {
+      "name" : "Bricobrew",
+      "pageurl" : "/projects/bricobrew.html",
+      "image" : "/img/bricobrew_workshop_logo.png",
+      "lead_contact" : ["Sarah Choukah", "schoukah@gmail.com"],
+      "timeline": [
+        {
+          "stamp" : "July 31, 2014 : Bricobrew Summer 2014",
+          "content" : "Bricobrew: First meeting",
+          "links" : { 
+            "Eventbrite" : "https://www.eventbrite.ca/e/opensource-beer-by-bricobio-helios-tickets-12325446743",
+            "Meeting Agenda" : "https://docs.google.com/document/d/1h7xnkythVJFI4ujnCks7EfhbUOwpjHe8SbKLUvnOFkU/edit",
+            "Main Planning Document" : "https://docs.google.com/document/d/1SVzdCfhXk67X4VskAA4SCAG_vcfPy8-fOLhr9Fy2Lao/edit?usp=sharing",
+            "Assigned tasks" : "https://trello.com/b/bRO3S850.html",
+            "Event Planning Checklist" : "https://trello.com/c/JRsT3Fl7.html"
+          } 
+        },
+        {
+          "stamp" : "Bricobrew Summer 2014",
+          "content" : "Bricobrew: Montreal's Best Open Source Beer",
+          "links" : {
+            "Google drive documents" : "https://drive.google.com/folderview?id=0ByjutUT3qGiqeFJBTS1kRnFxakE&usp=sharing",
+            "Synbiota notebook" : "https://www.synbiota.com/projects/648/",
+            "Main Planning Document" : "https://docs.google.com/document/d/1SVzdCfhXk67X4VskAA4SCAG_vcfPy8-fOLhr9Fy2Lao/edit?usp=sharing"
+          } 
+        },
+        {
+          "stamp": "Bricobrew Spring 2014",
+          "content": "Bricobrew Workshops",
+          "links": {
+            "Google drive documents" : "https://drive.google.com/folderview?id=0ByjutUT3qGiqVnZ4bGI0bUJ3Ykk&usp=sharing"
+          }
+        }
+      ]
+    },
+    "project3" : {
+      "name" : "BacteriArt",
+      "pageurl" : "/bacteriart.html",
+      "image" : "/img/bacteriart_project.png",
+      "lead_contact" : ["Thomas Ingalls", "thomasingalls@gmail.com"],
+      "timeline": [
+        {
+          "stamp" : "July 20, 2014",
+          "content" : "Images sent out! (Wow, that is late.) See the <a href='http://bricobio.com/bacteriart.html'>BacteriArt Page&nbsp;<span class='glyphicon glyphicon-link'><\/span><\/a> to browse all the images!" 
+        },
+        {
+          "stamp" : "s",
+          "content" : "Montreal Mini Maker Faire, 2014",
+          "links" : {
+            "b" : "https://docs.google.com/document/d/1SVzdCfhXk67X4VskAA4SCAG_vcfPy8-fOLhr9Fy2Lao/edit?usp=sharing"
+          } 
+        }
+      ]
+    },
+    "project4" : {
+      "name" : "Minimally modified inkjet printers for biological applications",
+      "pageurl" : "",
+      "image" : "/img/prj-printer-mod.png"
+    },
+    "project5" : {
+      "name" : "Microfluidics",
+      "pageurl" : "",
+      "image" : "/img/prj-microfluidics.png"
+    },
+    "project6" : {
+      "name" : "Electrophoresis, DIY and otherwise",
+      "pageurl" : "",
+      "image" : "/img/diy-electrophoresis.png",
+      "description" : "",
+      "status" : ""
+    },
+    "project7" : {
+      "name" : "#ScienceHack Violacein Factory - Haliburton Launch",
+      "pageurl" : "",
+      "image" : "/img/prj_sciencehack.png"
+    },
+    "project8" : {
+      "name" : "Genomikon Kit",
+      "pageurl" : "",
+      "image" : "/img/edu_genomikon.png"
+    }
+  },
+  "blankpage" : {
+    "layout" : "_infopage.jade"
+  }
+}

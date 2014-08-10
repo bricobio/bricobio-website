@@ -1,0 +1,14 @@
+.jumbotron
+  h1 Documents
+.container
+  .row
+    .col-md-4
+      h2 Documents list
+      .btn-group-vertical
+        - var pages = public.documents._data
+        for page in pages
+          a.btn.btn-primary(href="#{ page.pageurl }", style="margin: 0 6px 6px 0;", target="kcontent") #{ page.title }
+    .col-md-8.hidden-sm.hidden-xs.text-center
+      h2 Content from the links on the left
+      iframe(id="kcontent", name="kcontent", src="/blankpage.html", style="border:solid 1px black;").googleCalendarIframe
+.clearfix

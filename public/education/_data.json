@@ -1,0 +1,19 @@
+{
+  "projects" : {
+    "project1" : {
+      "name" : "Bio 101",
+      "pageurl" : "/education/bio101.html",
+      "image" : "/img/edu_mb101.png"
+    },
+    "project2" : {
+      "name" : "BricoBrew Workshops",
+      "pageurl" : "/education/bricobrew.html",
+      "image" : "/img/bricobrew_workshop_logo.png"
+    }
+  },
+  "project3" : {
+    "name" : "Wednesday Night Workshops",
+    "pageurl" : "/education/wednesdayworkshops.html",
+    "image" : "/img/wednesdayworkshops.png"
+  }
+}

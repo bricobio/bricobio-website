@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<head>
+<title> PEP-FOLD best models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+</head>
+<body style="font-family:monospace;font-size:11px;line-height:18px;">
+
+<script src="/portal/applets/jmol/Jmol.js"></script>
+<script language="javascript" type="text/javascript">
+
+      var wireframe='off';
+      var spacefill='off';
+      var trace='off';
+      var cartoons='on';
+      var wireframe='off';
+      var ribbons='off';
+      var backbone='off';
+
+      var color='group';
+
+      function loadMol(File) {
+        document.jmol.script('load '+File+';select all; wireframe '+wireframe+';spacefill '+spacefill+';cartoons '+cartoons+';trace '+trace+';ribbons '+ribbons+';backbone '+backbone+';color '+color);
+      }
+
+      function setColor(Color) {
+        color=Color;
+        document.jmol.script('select all; color '+color);
+      }
+
+      function setRepMode(Cartoons, Spacefill, Wireframe, Ribbons, Backbone) {
+        cartoons=Cartoons;
+        spacefill=Spacefill;
+        wireframe=Wireframe;
+        ribbons=Ribbons;
+        backbone=Backbone;
+        document.jmol.script('select all; wireframe '+wireframe+'; spacefill '+spacefill+'; ribbons '+ribbons+'; cartoons '+cartoons+'; backbone '+backbone);
+      }
+
+</script>
+</head>
+<body style="font-family:monospace;font-size:11px;line-height:18px;">
+
+<table style="font-family:monospace;font-size:11px;line-height:18px;">
+<tr>
+<td>
+<applet name="jmol" code="JmolApplet" archive="JmolApplet.jar" codebase="/portal/applets/jmol" width="500" height="500">
+<param name="progressbar" value="true"/>
+<param name="load" value="model1.pdb"/>
+<param name="script" value="select all; wireframe off; spacefill off; ribbons off; cartoons on; backbone off; color group"/>
+</applet>
+</td>
+<td>
+<form autocomplete="off">
+
+<table style="font-family:monospace;font-size:11px;line-height:18px;">
+<tr>
+<td>  
+Display:<br/> 
+<input type="radio" name="display" value="Cartoon" onClick="setRepMode('on', 'off','off','off','off')" CHECKED>Cartoon</input><br/> 
+<input type="radio" name="display" value="Balls & sticks" onClick="setRepMode('off',150,75,'off','off')">Balls & Sticks</input><br/>
+<input type="radio" name="display" value="Spheres" onClick="setRepMode('off', 'on','off','off','off')">Spheres</input><br/> 
+<input type="radio" name="display" value="Wireframe" onClick="setRepMode('off', 'off','0.15','off','off')">Wireframe</input><br/> 
+<input type="radio" name="display" value="Ribbons" onClick="setRepMode('off', 'off','off','on','off')">Ribbons</input><br/> 
+<input type="radio" name="display" value="Backbone" onClick="setRepMode('off', 'off','off','off','0.25')">Backbone</input><br/> 
+<br/>
+</td>
+</tr>
+<tr>
+<td>
+          Color Scheme:<br/>
+<input type="radio" name="color" value="group" onClick="setColor('group')" CHECKED>By Group</option><br/>
+<input type="radio" name="color" value="structure" onClick="setColor('structure; select sheet; color green; select helix; color red;')">By Secondary Structure</input><br/>
+<input type="radio" name="color" value="amino" onClick="setColor('amino')">By Residue</option><br/>
+<input type="radio" name="color" value="atoms" onClick="setColor('cpk')">By Atoms</option><br/>
+<br/>
+</td>
+</tr>
+
+<tr>
+<td>
+<input type="button" value="Load model1" onClick="loadMol('model1.pdb')"/> <br/><input type="button" value="Load model2" onClick="loadMol('model2.pdb')"/> <br/><input type="button" value="Load model3" onClick="loadMol('model3.pdb')"/> <br/><input type="button" value="Load model4" onClick="loadMol('model4.pdb')"/> <br/><input type="button" value="Load model5" onClick="loadMol('model5.pdb')"/> <br/>
+</td>
+</tr>
+</table>
+
+</form>
+
+</td>
+</tr>
+</table>
+</body>
+</html> 
+

@@ -1,0 +1,37 @@
+.container
+  .row
+    .col-md-8(role='content')
+      for post, slug in public.posts._data
+        .well
+          .pst(style="position:relative; top:-20px")
+            h3
+              a(href="/posts/#{ slug }")= post.title
+            p= post.summary
+            h6(style="position:relative; top:+40px")
+              | Written by 
+              -for(var i=0,l=post.authors.length; i<l; i++){
+                  a(href="#{post.authorprofile[i] || ''}") #{post.authors[i]}
+                  -if(((l>1 && l<3) || i+2===l) && i+1!==l)
+                    span  and 
+                  -else if(l>1 && i+1!==l)
+                    span,  
+                -}
+              | &nbsp;on #{post.date_published} 
+              if(post.date_updated != null) 
+                p: em Updated on #{post.date_updated}
+              //- else
+              //-   em not yet modified
+              a(href="/posts/#{ slug }") Read More »
+    .col-md-4
+      div(id="gcf-simple", style="width:100%;")
+      p 
+        a(href="http://www.google.com/calendar/render?cid=https://www.google.com/calendar/ical/l1nv8tbg54emb1p7a1uvj0kr54%40group.calendar.google.com/public/basic.ics") Subscribe to this calendar 
+          span.glyphicon.glyphicon-calendar
+
+  
+
+
+script(type="text/javascript").
+  $(function() { $('#gcf-simple').gCalFlow({
+    calid: 'l1nv8tbg54emb1p7a1uvj0kr54@group.calendar.google.com'
+  });});
