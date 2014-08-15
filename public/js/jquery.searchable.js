@@ -5,7 +5,7 @@
  * Copyright 2014 Stidges
  * Released under the MIT license
  */
-;(function( $, window, document, undefined ) {
+(function( $, window, document, undefined ) {
 
     var pluginName = 'searchable',
         defaults   = {
