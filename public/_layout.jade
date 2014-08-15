@@ -16,9 +16,12 @@ html(lang='en')
     link(rel='stylesheet', href='/css/main.css')
     script(src='//code.jquery.com/jquery.js')
     script(async, src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    //- script(src="/js/jquery-2.0.3.min.js")
+    //- script(src="/js/bootstrap.min.js")
     script(async, src="/components/harp-bootstrap/js/tooltip.js")
-    script(type="text/javascript" src="/js/jquery.linkify.min.js")
-    script(type="text/javascript" src="/js/jquery.gcal_flow.js")
+    script(type="text/javascript", src="/js/jquery.linkify.min.js")
+    script(type="text/javascript", src="/js/jquery.gcal_flow.js")
+    script(type="text/javascript", src="/js/jquery.ba-dotimeout.min.js")
 
     //
        HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -29,6 +32,7 @@ html(lang='en')
     != partial('_partials/_navbar.jade')
     != yield
     != partial('_partials/_footer.jade')
+
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -38,3 +42,54 @@ html(lang='en')
       ga('create', 'UA-51265317-1', 'bricobio.com');
       ga('require', 'displayfeatures');
       ga('send', 'pageview');
+    
+    if current.source == "index"
+      script.
+        //- $('#mainblock').addClass('logo-message')
+        $('.radial-progress, #mainhovercapture').hover(
+          function () {
+            $('.radial-progress').attr('data-progress', 100),
+            $('.radial-progress').addClass('card'),
+            $('.radial-progress').doTimeout( 'lgot', 2300, function() {
+              
+              $('#maintitle, #mainlead, #mainmessage').fadeOut('250ms', function() {
+                //- TODO: does fadeOut() actually take timing arguments of the form '250ms'? it seems like no, but I might be missing something.
+                //- TODO: learn how to debug jquery
+                //- TODO: add click-to-pause, fade-in element by logo
+                //- -- DONE, but sloppy. TODO: add pause on hover over message element
+                //- TODO: allow arbitrary HTML to live inside the modified jumbotron text.
+                //- TODO: Should really recode the animation in jquery to have control over all these things.
+                $('#mainhovercapture').css({'visibility':'visible'}),
+                $('#mainblock').addClass('logo-message'),
+                $('#maintitle').html('<i>What is the Bricobio logo?</i>'),
+                $('#mainlead').html('A <i>ribosome</i> is a molecular compiler that translates genetic codes into molecular machines. The Bricobio logo contains the classic cartoon representation of the ribosome, with a gear inside to represent the connection between synthetic biology and the DIY ethos. <br> Ribosomes are exceptionally important molecules. One hypothesis of the origin of life names the development of ribosomes as the first step.'),
+                $('#maintitle, #mainlead').fadeIn('250ms', function(){})
+              })
+            }),
+            $('.radial-progress').doTimeout('hidr')
+          },
+          function () {
+            $('.radial-progress').attr('data-progress', 0),
+            $('.radial-progress').doTimeout('lgot'),
+            $('.radial-progress').removeClass('card'),
+            $('.radial-progress').doTimeout('hidr', 2300, function(){
+              //- TODO: this isn't really the inverse of the previous animatino, so it needs fixing.
+              $('#maintitle, #mainlead, #mainmessage').fadeIn('250ms', function() {
+                //$('#maintitle, #mainlead, #mainmessage').fadeIn('250ms', function(){}), // not sure why this isn't needed, but ok!
+                $('#mainhovercapture').css({'visibility':'hidden'}),
+                $('#mainblock').removeClass('logo-message'),
+                $('#maintitle').html('Science for everyone.'),
+                $('#mainlead').html('Bricobio, Montreal\'s first community biology laboratory.')
+              })
+            })
+          }
+        );
+        //- $('#mainblock.card').hover( 
+        //-   function() {
+        //-     $('.radial-progress').attr('data-progress', 100),
+        //-     $('.radial-progress').doTimeout('hdir')
+        //-   }, 
+        //-   function() {
+        //-     $('.radial-progress').doTimeout('lgot')
+        //-   }
+        //- );

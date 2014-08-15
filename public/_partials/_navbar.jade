@@ -1,34 +1,72 @@
 .navbar.navbar-default.navbar-static-top(role='navigation')
   .container
+    ul.nav.navbar-nav.nav-lang
+      //-(style="top:0px;right:20px;position:absolute;")
+      li.language-circle
+        a.navcard(href="#{fr.uri}#{ current.source }.html") FR
     .navbar-header
       button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.navbar-collapse')
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      // a.navbar-brand(href= en.uri, alt= en.brand)
-        img(src='/img/logo.png', style="height:55px;")
-  .navbar-collapse.collapse
-    ul.nav.navbar-nav.navbar-right
-      li(class="#{ current.source == 'index' ? 'active' : '' }")
-        a(href='/') !{en.navbar.index}
-      li.dropdown(class="#{ current.source == 'blog' ? 'active' : '' }") 
-        a(class="dropdown-toggle" data-toggle="dropdown" href="/blog.html") !{en.navbar.blog} 
-          b.caret       
-          ul.dropdown-menu      
-            li(class="#{ current.source == 'blog' ? 'active' : '' }")
-               a(href='/blog.html') !{en.navbar.blog}
-            li(class="#{ current.source == 'calendar' ? 'active' : '' }")
-               a(href='/calendar.html') !{en.navbar.calendar}
-      li(class="#{ current.source == 'education' ? 'active' : '' }")
-        a(href='/education.html') !{en.navbar.education}
-      li(class="#{ current.source == 'projects' ? 'active' : '' }")
-        a(href='/projects.html') !{en.navbar.projects}
-      li(class="#{ current.source == 'documents' ? 'active' : '' }")
-        a(href='/documents.html') !{en.navbar.documents}  
-      li(class="#{ current.source == 'about' ? 'active' : '' }")
-        a(href='/forum.html') !{en.navbar.forum}
-      li(class="#{ current.source == 'contact' ? 'active' : '' }")
-        a(href='/contact.html') !{en.navbar.contact}
-      li
-        a(href="#{fr.uri}#{ current.source }.html") FR
+    
+
+          
+
+
+    
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li(class="#{ current.source == 'news' ? 'active' : '' }")
+          a.navcard(href='/news.html') !{en.navbar.news}
+        li(class="#{ current.source == 'education' ? 'active' : '' }")
+          a.navcard(href='/education.html') !{en.navbar.education}
+        li(class="#{ current.source == 'projects' ? 'active' : '' }")
+          a.navcard(href='/projects.html') !{en.navbar.projects}
+      ul.nav.navbar-nav.navbar-right
+        li(class="#{ current.source == 'documents' ? 'active' : '' }")
+          a.navcard(href='/documents.html') !{en.navbar.documents}  
+        li(class="#{ current.source == 'forum' ? 'active' : '' }")
+          a.navcard(href='/forum.html') !{en.navbar.forum}
+        li(class="#{ current.source == 'about' ? 'active' : '' }")
+          a.navcard(href='/about.html') !{en.navbar.about}     
+        li(class="#{ current.source == 'contact' ? 'active' : '' }")
+          a.navcard(href='/contact.html') !{en.navbar.contact}
+
+    
+    if current.source != "index"
+      .navbar-brand
+        .logo-e(style="left:-40px;")
+          .inset
+            .logo-e3
+              a(href="/", alt= en.brand)
+    if current.source == "index"
+      .navbar-brand
+        .logo-e
+          //- TODO: Make responsive styles, surrounding content rules for this element so it fits on all pages @thomasingalls
+          //- TODO: Need to widgetize this stack of elements, so that they can be ported around nicely. @thomasingalls
+          .logo-e1()
+            a(href="/", alt= en.brand)
+          .logo-e2()
+            //-
+            //- TODO: make pixel-perfect copy of images used as sprites for these animations
+            //- ?? is there a translation of pandoc into javascript or ruby?
+            .e2a
+              .e2b
+          .radial-progress(data-progress='0')
+            .circle
+              //-(style="z-index:1;")
+              .mask.full
+                .fill
+              .mask.half
+                .fill
+                .fill.fix
+            .inset
+              //-(style="z-index:3;")
+              .logo-e3
+                a(href="/", alt= en.brand)
+          //- .logo-e4
+          //-   span.glyphicon.glyphicon-pushpin
+          //-   p Pin message
+

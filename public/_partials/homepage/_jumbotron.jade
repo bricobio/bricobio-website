@@ -2,23 +2,47 @@
     img(src='/img/bricobio-aligned-peptide-white-chimera3.jpg')
 //- TODO: make responsive style for buttons btn-lg --> btn-sm by screen size
 //- TODO: make ribbon responsive
-    
-.text-center
-  //-.content-box
-  h1 Science for everyone.
-  p.lead Bricobio, Montreal's first community biology laboratory.
-  .container-fluid
-      ul.list-inline.text-center
-        li.jumbotron-buttons-li
-            a(href="http://www.meetup.com/diybio-montreal").btn-lg.btn-success Join us at an upcoming event
-                span.glyphicon.glyphicon-chevron-right
 
-        li.jumbotron-buttons-li
-            a(href="/contact.html").btn-lg.btn-success Start your project
-                span.glyphicon.glyphicon-chevron-right
+#mainblock.text-center.col-md-8.col-md-offset-2
+  
+                
+  #mainhovercapture(style="width:100%;height:100%;background:transparent;z-index:0;padding:0;margin:0;position:absolute;visibility:hidden;")
+  //- .col-xs-12.col-sm-8 
+  //-   //-.logo-message
+  //-   h3.text-center(style="") What's in the Bricobio Logo?
+  //-   p A 
+  //-     a(href="http://en.wikipedia.com/wiki/ribosome")
+  //-       i ribosome&nbsp;
+  //-     |  is a molecular compiler that translates genetic code into molecular machines.
+  //-   a.btn.btn-lg.btn-success() Learn more&nbsp;&nbsp;
+  //-     span.glyicon.glpyicon-chevron-right
+  h1#maintitle(style="margin-top:110px;color: rgb(148,187,221);") Science for everyone.
+  p#mainlead.lead Bricobio, Montreal's first community biology laboratory.
+  #mainmessage.container-fluid(style="margin-top:30px;")
+      ul.list-inline
+        li.card.jumbotron-circle-buttons
+          a(href="http://www.meetup.com/diybio-montreal") Join a
+            br
+            | group 
+            br
+            | project
+                
 
-        li.jumbotron-buttons-li
-            a(href="/projects.html").btn-lg.btn-success Join a project
-                span.glyphicon.glyphicon-chevron-right
-  #ribbon-container
-    a#ribbon(href='/bacteriart.html') Find your BacteriArt
+        li.card.jumbotron-circle-buttons
+          a(href="/contact.html") Start 
+            br
+            | your own
+            br
+            | project
+                
+
+        li.card.jumbotron-circle-buttons
+          a(href="/projects.html") Come
+            br 
+            | to an 
+            br
+            | event
+
+
+#ribbon-container
+  a#ribbon(href='/bacteriart.html') Find your BacteriArt

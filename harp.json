@@ -6,13 +6,14 @@
       "contact_email": "thomasingalls@bricobio.org",
       "uri" : "http://bricobio.com/en/",
       "navbar" : {
-        "index" : "About",
-        "blog" : "News & Events",
+        "index" : "Home",
+        "news" : "News & Events",
         "calendar" : "Calendar",
         "education" : "Education",
         "projects" : "Projects",
         "documents" : "Documents",
         "forum" : "Forum",
+        "about" : "About",
         "contact" : "Contact"
       },
       "projects" : {
@@ -29,12 +30,13 @@
       "uri" : "http://bricobio.com/fr/",
       "navbar" : {
         "index" : "Accueil",
-        "blog" : "Nouvelles & Evenments",
+        "news" : "Nouvelles & Evenments",
         "calendar" : "Agenda",
         "education" : "Formation",
         "projects" : "Projets",
         "documents" : "Documents",
         "forum" : "Forum",
+        "about" : "À propos",
         "contact" : "Contact"
       },
       "projects" : {
