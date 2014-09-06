@@ -1,22 +1,78 @@
 .col-sm-12
-    h2.text-center
-        a(name="news")
-        | Featured Projects
-.col-sm-12.col-lg-4.text-center
-    .thumbnail
-        img(src="/img/prj-printer-mod.png").img-responsive
-        .caption
-            h3
-                a(href="http://bricobio.com/projects/bioprinting") Bioprinting
-.col-sm-12.col-lg-4.text-center
-    .thumbnail
-        img(src="/img/bricobrew_workshop_logo.png").img-responsive
-        .caption
-            h3
-                a(href="http://bricobio.com/brew") Bricobrew
-.col-sm-12.col-lg-4.text-center
-    .thumbnail
-        img(src="/img/diy-electrophoresis.png").img-responsive
-        .caption
-            h3
-                a(href="http://bricobio.com/projects/electrophoresis") Electrophoresis
+  h2.text-center Featured Community Projects
+  br
+
+.col-sm-6.col-md-4.col-lg-3
+  .card(style="border-radius:4px;overflow:hidden;margin-bottom: 30px;background-color: #fff;")
+    a(href="http://bricobio.com/projects/bioprinting")
+      img.img-responsive(src="/img/prj-printer-mod.png", style="box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); background-color: #fff;")
+    .text-container(style="margin: 15px;")
+      h3 Bioprinting
+      p We're starting small, modifying inkjet printer cartridges to dispense anything but ink.
+      ul.list-inline.pull-right
+        li
+          a.btn.btn-md(href="", alt="Project Page", title="Project Page")
+            span.glyphicon.glyphicon-folder-open
+        li
+          a.btn.btn-md(href="", alt="Upcoming Events", title="Events")
+            span.glyphicon.glyphicon-calendar
+        li
+          a.btn.btn-md(href="", alt="Join this project", title="Join this project")
+            span.glyphicon.glyphicon-log-in
+
+.col-sm-6.col-md-4.col-lg-3
+  .card(style="border-radius:4px;overflow:hidden;margin-bottom: 30px;background-color: #fff;")
+    a(href="http://bricobio.com/brew")
+      img.img-responsive(src="/img/bricobrew_workshop_logo.png", style="box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); background-color: #fff;")
+    .text-container(style="margin: 15px;")
+      h3 Bricobrew
+      p Designing experiments in beer. Round 1: establishment of processes, colors from yeast
+      ul.list-inline.pull-right
+        li
+          a.btn.btn-md(href="", alt="Project Page", title="Project Page")
+            span.glyphicon.glyphicon-folder-open
+        li
+          a.btn.btn-md(href="", alt="Upcoming Events", title="Events")
+            span.glyphicon.glyphicon-calendar
+        li
+          a.btn.btn-md(href="", alt="Join this project", title="Join this project")
+            span.glyphicon.glyphicon-log-in
+        li
+          a.btn.bt-md(href="", alt="Trello board", title="Project Trello Board")
+            span.fa.fa-trello
+
+.col-sm-6.col-md-4.col-lg-3
+  .card(style="border-radius:4px;overflow:hidden;margin-bottom: 30px;background-color: #fff;")
+    a(href="http://bricobio.com/projects/electrophoresis")
+      img.img-responsive(src="/img/diy-electrophoresis.png", style="box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); background-color: #fff;")
+    .text-container(style="margin: 15px;")
+      h3 Electrophoresis
+      p The do-it-yourself variety, the long-established technique, the theory, and the application thereof
+      ul.list-inline.pull-right
+        li
+          a.btn.btn-md(href="", alt="Project Page", title="Project Page")
+            span.glyphicon.glyphicon-folder-open
+        li
+          a.btn.btn-md(href="", alt="Upcoming Events", title="Events")
+            span.glyphicon.glyphicon-calendar
+        li
+          a.btn.btn-md(href="", alt="Join this project", title="Join this project")
+            span.glyphicon.glyphicon-log-in
+
+.col-sm-6.col-md-4.col-lg-3
+  .card(style="border-radius:4px;overflow:hidden;margin-bottom: 30px;background-color: #fff;")
+    a(href="http://bricobio.com/projects/microfluidics")
+      img.img-responsive(src="/img/prj-microfluidics.png", style="box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); background-color: #fff;")
+    .text-container(style="margin: 15px;")
+      h3 Microfluidics
+      p In collaboration with various community groups, Bricobio is developing applications for microfluidic devices
+      ul.list-inline.pull-right
+        li
+          a.btn.btn-md(href="", alt="Project Page", title="Project Page")
+            span.glyphicon.glyphicon-folder-open
+        li
+          a.btn.btn-md(href="", alt="Upcoming Events", title="Events")
+            span.glyphicon.glyphicon-calendar
+        li
+          a.btn.btn-md(href="", alt="Join this project", title="Join this project")
+            span.glyphicon.glyphicon-log-in   

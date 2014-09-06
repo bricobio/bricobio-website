@@ -1,7 +1,7 @@
 @import '../components/harp-bootstrap/less/_bootstrap.less';
 @import '_variables.less';
 @import '_lesshat.less';
-@import 'jquery.gcal_flow.css';
+//@import 'jquery.gcal_flow.css';
 
 
 
@@ -61,7 +61,7 @@ body {
 }
 
 // // logo styles
-@nav-text-color: #4186c3;
+//@color-primary-1: #4186c3;
 
 .navbar-brand {
   height: 0;
@@ -155,12 +155,12 @@ body {
     left: 40px;
     // position: relative;
     
-    background: -moz-linear-gradient(top, #2b4959 0%, lighten(@nav-text-color, 20%) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b4959), color-stop(100%,lighten(@nav-text-color, 20%))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #2b4959 0%,lighten(@nav-text-color, 20%) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #2b4959 0%,lighten(@nav-text-color, 20%) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #2b4959 0%,lighten(@nav-text-color, 20%) 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #2b4959 0%,lighten(@nav-text-color, 20%) 100%); /* W3C */
+    background: -moz-linear-gradient(top, #2b4959 0%, lighten(@color-primary-1, 20%) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b4959), color-stop(100%,lighten(@color-primary-1, 20%))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #2b4959 0%,lighten(@color-primary-1, 20%) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #2b4959 0%,lighten(@color-primary-1, 20%) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #2b4959 0%,lighten(@color-primary-1, 20%) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #2b4959 0%,lighten(@color-primary-1, 20%) 100%); /* W3C */
     
     .transition-helper(opacity, 250ms, ease-in);
   }
@@ -234,12 +234,12 @@ body {
     // display: none;
     // position: absolute;
     // width: 260px;
-    border: solid 3px lighten(@nav-text-color, 20%);
-    background-color: #4186C3;
-    color: #2B4959;
+    border: solid 3px @color-primary-4;
+    background-color: @color-primary-0;
+    color: @color-secondary-2-2;
     padding: 30px;
     // left: 0px;
-    // top: 55px;
+    margin-top: -30px;
     border-radius: 4px;
     z-index: 60;
     .card
@@ -262,18 +262,18 @@ body {
   // }
 
 
-// Loading circle animation: Pure CSS, but no callbacks
+// Loading circle animation: Pure CSS, but no callbacks --> need a javascript timer to keep track of events
 // -----------
 
 .radial-progress {
   @circle-size: 86px;
   @circle-background: transparent;
-  @circle-color: lighten(@nav-text-color, 20%);
+  @circle-color: @color-primary-2;
   @inset-size: 80px;
   @inset-color: #fbfbfb;
   @transition-length: 3s;
   @shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  @percentage-color: #97a71d;
+  @percentage-color: @color-primary-1;
   @percentage-font-size: 22px;
   @percentage-text-width: 57px;
 
@@ -398,7 +398,7 @@ body {
   background: transparent;
   font-family: Lato, 'Helvetica Neue', Arial, Sans-serif;
   font-weight: 900;
-  background: rgb(9, 6, 8) right center url('/img/main-jumbotron-bkg.png') no-repeat;
+  background: #fff right center url('/img/DNA-jumbotron-bkg.png') no-repeat;//background: rgb(9, 6, 8) right center url('/img/main-jumbotron-bkg.png') no-repeat;
   vertical-align: bottom;
 }
 
@@ -434,7 +434,7 @@ body {
 }
 
 .jumbotron-circle-buttons:hover {
-  background-color: @nav-text-color;
+  background-color: @color-primary-1;
 }
 
 .jumbotron-circle-buttons > a {
@@ -446,19 +446,80 @@ body {
   top: 50%;
   left: 50%;
   padding: 0 5px;
-  color: #090608;
+  color: @color-primary-4;
   font-weight: 300;
   text-decoration: none;
 }
 
   .jumbotron-circle-buttons > a:hover{
-    color: #1C2127;
+    color: @color-primary-3;
   }
 
 #mainlead {
   color: @color-primary-3; //darken(@body-bg, 10%);
   font-weight: 300;
 }
+
+// gcal-flow custom styles
+// -------------------------
+
+.gcf-item-block > .card {
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background-color: #fff; //@color-primary-2;
+  padding-right: 10px;
+}
+.gcf-item-date {
+  width: 85px;
+  margin: 0 15px 10px 3px;
+  text-align: center;
+}
+.gcf-item-header-block {
+  word-wrap: break-word;
+  padding: 1px 0 0 0;
+  // something about this 1px padding makes the subsequent h4 10px padding relative to the top of the container, like I want. 
+  // TODO: if there's a better way to achieve this, let's do that.
+}
+.gcf-item-location {
+  word-wrap: break-word;
+  padding: 0 0 0 100px;
+}
+.gcf-item-description {
+  word-wrap: break-word;
+  margin: 15px 3px 10px 100px;
+  // is it more appropriate to use left/top positioning to align the description with the rest of the text, or, like word, to add a massive tab stop in as a margin?
+}
+.gcf-custom-datepanel {
+  width: 85px;
+  
+  float: left;
+  margin: 3px 10px 3px 0;
+  background-color: @color-complement-1;
+  border-radius: 4px;
+}
+.gcf-custom-day {
+  font-size: 36px;
+  line-height: 36px;
+  margin-top: 10px;
+  font-weight: 900;
+  color: @color-secondary-2-4;
+}
+.gcf-custom-month {
+  font-weight: 300;
+  font-size: 12pt;
+  color: @color-secondary-2-4;
+  margin-bottom: 10px;
+}
+.gcf-custom-time {
+  float: left;
+  // TODO: this float shouldn't be necessary, but it is.
+  font-weight: 900;
+}
+
+// Project Cards
+// -------------------------
+
+
 
 
 // Making rows into responsive,  cards

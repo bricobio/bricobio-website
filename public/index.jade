@@ -1,22 +1,9 @@
-.jumbotron.jumbotron-home
+.jumbotron.jumbotron-home.page-element-card
     !=partial('_partials/homepage/_jumbotron.jade')
 .container-fluid
     .main-page-row
-        //- .col-md-3(style="top: -20px;")
-            !=partial('_partials/homepage/_upcomingevents.jade')
-        .col-md-12
-            .main-page-row.navcard(style="background-color:white;") 
-                !=partial('_partials/homepage/_featured-events.jade')
-            .main-page-row 
-                !=partial('_partials/homepage/_featured-projects.jade')
-            .main-page-row(style="padding: 1em;")
-                !=partial("_partials/homepage/_info.jade")        
-        //-
-          .col-md-3.hidden-sm.hidden-xs
-            !=partial('_partials/homepage/_recentposts.jade')
-//- .container-fluid
-    
-    !=partial('_partials/homepage/_edu.jade')
-    !=partial('_partials/homepage/_proj.jade')
-    !=partial('_partials/homepage/_other.jade')
-    
+        !=partial('_partials/homepage/_featured-events.jade')
+    .main-page-row 
+        !=partial('_partials/homepage/_featured-projects.jade')
+//-    .main-page-row
+        !=partial("_partials/homepage/_recentposts.jade")  

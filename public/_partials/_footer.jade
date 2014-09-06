@@ -1,28 +1,26 @@
 footer.bs-footer
-    .divider
-        hr
-    .container-fluid
+    br
+    br
+    .container.page-element-card
       .row.text-center
-        .col-md-4
+        .col-md-4(style="background-color:#fff;")
             h5 Projects quick links:
             - for(var website in urls.project){
             a(alt="#{urls.project[website][0]}", href="#{urls.project[website][1]}", target="_blank")
                 img(src="/img/#{website}.png", style="height:45px;")
             -}            
-        .col-md-5
+        .col-md-5(style="background-color:#fff;")
             h5 Social media quick links:
             - for(var website in urls.social){
             a(alt="#{urls.social[website][0]}", href="#{urls.social[website][1]}", target="_blank")
                 img(src="/img/#{website}.png", style="height:45px;")
             -}
-        .col-md-3
+        .col-md-3(style="background-color:#fff;")
             h5 Sponsors:
             - for(var website in urls.sponsors){
             a(alt="#{urls.sponsors[website][0]}", href="#{urls.sponsors[website][1]}", target="_blank")
                 img(src="/img/#{website}.png", style="height:45px;")
             -}
-      .clearfix.divider
-        hr
       //-.row
         // Begin MailChimp Signup Form
         div.col-md-offset-2.col-md-8#optin
@@ -45,7 +43,7 @@ footer.bs-footer
         // End mc_embed_signup
             br
                 
-    .container-fluid.text-center(style="background-color:#aaa;")
+    .container-fluid.text-center
         br
         br
         p &nbsp; Bricobio, est. 2013

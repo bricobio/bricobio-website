@@ -14,8 +14,10 @@ html(lang='en')
         
     //- core CSS
     link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') 
     script(src='//code.jquery.com/jquery.js')
     script(async, src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    //- local scripts load slowly on production
     //- script(src="/js/jquery-2.0.3.min.js")
     //- script(src="/js/bootstrap.min.js")
     script(async, src="/components/harp-bootstrap/js/tooltip.js")
@@ -43,6 +45,7 @@ html(lang='en')
       ga('require', 'displayfeatures');
       ga('send', 'pageview');
     
+    //- Logo animation script
     if current.source == "index"
       script.
         //- $('#mainblock').addClass('logo-message')
