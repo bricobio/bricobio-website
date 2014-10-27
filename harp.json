@@ -7,14 +7,10 @@
       "uri" : "http://bricobio.com/en/",
       "navbar" : {
         "index" : "Home",
-        "news" : "News & Events",
-        "calendar" : "Calendar",
-        "education" : "Education",
-        "projects" : "Projects",
-        "documents" : "Documents",
-        "forum" : "Forum",
         "about" : "About",
-        "contact" : "Contact"
+        "projects" : "Projects",
+        "events" : "Events",
+        "discuss" : "Discuss"
       },
       "projects" : {
         "BricoReactor" : "BricoReactor",
@@ -66,7 +62,9 @@
       "sponsors":{
         "synbiota" : ["Synbiota", "http://www.synbiota.com"],
         "hyasynth" : ["Hyasynth Biologicals", "http://www.hysynthbio.com"],
-        "sensorica" : ["Sensorica", "http://www.sensorica.co"]
+        "sensorica" : ["Sensorica", "http://www.sensorica.co"],
+        "helios" : ["Helios Makerspace", "http://www.helios.ca"],
+        "hardwareguild" : ["the Hardware Guild", "http://hardwareguild.ca"]
       },
       "other_groups": {
         "Genspace": ["tw, fb, linkedin, etc"],

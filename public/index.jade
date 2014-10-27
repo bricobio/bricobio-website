@@ -1,9 +1,10 @@
 .jumbotron.jumbotron-home.page-element-card
-    !=partial('_partials/homepage/_jumbotron.jade')
+    include _partials/homepage/_jumbotron.jade
 .container-fluid
     .main-page-row
-        !=partial('_partials/homepage/_featured-events.jade')
+        include _partials/homepage/_featured-events.jade
     .main-page-row 
-        !=partial('_partials/homepage/_featured-projects.jade')
+        include _partials/homepage/_featured-projects.jade
+        !=partial( '/../_partials/homepage/_featured-projects.jade' )
 //-    .main-page-row
         !=partial("_partials/homepage/_recentposts.jade")  

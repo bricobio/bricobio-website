@@ -1,9 +1,10 @@
 .container-fluid
     .row 
-        .col-md-4.col-sm-12
+        .col-md-4.col-xs-11.col-xs-push-1
             - var tl = public.projects._data.projects.project2.timeline
             
             h3 #{ public.projects._data.projects.project2.name } Project Timeline
+            
 
             ol.timeline
               for item in tl
@@ -19,7 +20,7 @@
                                 li.hidden-md.hidden-lg
                                     a.btn.btn-sm.btn-primary(href="#{ item.links[label] }", style="margin: 0 6px 6px 0;") #{ label }
                             - }
-        .col-md-8.hidden-sm.hidden-xs.text-center
+        .col-md-7.hidden-sm.hidden-xs.text-center
             h3 Content from the links on the left
             iframe(id="kcontent", name="kcontent", src="/projects/blankpage.html", style="border:solid 1px black;").googleCalendarIframe
 

@@ -1,4 +1,36 @@
 {
+  "prototypes" : {
+    "project" : {
+      "project0" : {
+        "name" : "",
+        "pageurl" : "",
+        "image" : "",
+        "lead_contact" : "",
+        "status" : ["active", "paused", "completed", "for sale", "seeking funding", "funded", "hiring"], 
+        "last_update" : "datetime",
+        "featured" : true,
+        "mailing_list" : "either the _partial for this project's signup form, or a url to the mailing list, or something else",
+        "description" : "",
+        "timeline" : [
+          {
+            "stamp" : "Stamp",
+            "content" : "Content",
+            "links" : {
+              "link 1" : "http://url.com",
+              "link 2" : "http://url2.com"
+            }
+          },
+          {
+            "stamp" : "Stamp 2",
+            "content" : "Content",
+            "links" : {
+              "link 1" : "http://www.google.com"
+            }
+          }
+        ]
+      }
+    }
+  },
   "projects" : {
     "project1" : {
       "name" : "BricoReactor",
@@ -72,7 +104,7 @@
       "lead_contact" : ["Thomas Ingalls", "thomasingalls@gmail.com"],
       "timeline": [
         {
-          "stamp" : "July 20, 2014",
+          "stamp" : "Sept 20, 2014",
           "content" : "Images sent out! (Wow, that is late.) See the <a href='http://bricobio.com/bacteriart.html'>BacteriArt Page&nbsp;<span class='glyphicon glyphicon-link'><\/span><\/a> to browse all the images!" 
         },
         {

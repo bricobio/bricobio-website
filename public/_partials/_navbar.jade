@@ -1,7 +1,6 @@
 .navbar.navbar-default.navbar-static-top(role='navigation')
   .container
     ul.nav.navbar-nav.nav-lang
-      //-(style="top:0px;right:20px;position:absolute;")
       li.language-circle
         a.navcard(href="#{fr.uri}#{ current.source }.html") FR
     .navbar-header
@@ -18,21 +17,15 @@
     
     .navbar-collapse.collapse
       ul.nav.navbar-nav
-        li(class="#{ current.source == 'news' ? 'active' : '' }")
-          a.navcard(href='/news.html') !{en.navbar.news}
-        li(class="#{ current.source == 'education' ? 'active' : '' }")
-          a.navcard(href='/education.html') !{en.navbar.education}
+        li(class="#{ current.source == 'about' ? 'active' : '' }")
+          a.navcard(href='/about.html') !{en.navbar.about}     
         li(class="#{ current.source == 'projects' ? 'active' : '' }")
           a.navcard(href='/projects.html') !{en.navbar.projects}
       ul.nav.navbar-nav.navbar-right
-        li(class="#{ current.source == 'documents' ? 'active' : '' }")
-          a.navcard(href='/documents.html') !{en.navbar.documents}  
-        li(class="#{ current.source == 'forum' ? 'active' : '' }")
-          a.navcard(href='/forum.html') !{en.navbar.forum}
-        li(class="#{ current.source == 'about' ? 'active' : '' }")
-          a.navcard(href='/about.html') !{en.navbar.about}     
-        li(class="#{ current.source == 'contact' ? 'active' : '' }")
-          a.navcard(href='/contact.html') !{en.navbar.contact}
+        li(class="#{ current.source == 'events' ? 'active' : '' }")
+          a.navcard(href='/events.html') !{en.navbar.events}  
+        li(class="#{ current.source == 'discuss' ? 'active' : '' }")
+          a.navcard(href='/discuss.html') !{en.navbar.discuss}
 
     
     if current.source != "index"

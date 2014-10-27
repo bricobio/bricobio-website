@@ -1,6 +1,6 @@
 {
   "home" : {
-
+    "test" : "#{en.navbar.news}"
   },
   "blog" : {
 
