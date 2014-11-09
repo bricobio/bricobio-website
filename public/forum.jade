@@ -2,5 +2,7 @@
     .col-sm-12
         h2.text-center Bricobio Discussion Forum
             a(name="contact")
-        iframe(id="forum_embed", src="https://groups.google.com/forum/embed/?place=forum/bricobio#!forum/bricobio" scrolling="no" frameborder="0").googleCalendarIframe
+iframe#forum_embed(src="javascript:void(0)", scrolling='no', frameborder='0').googleCalendarIframe
+script(type='text/javascript')
+    document.getElementById("forum_embed").src="https://groups.google.com/forum/embed/?place=forum/bricobio"+"&showsearch=true&showpopout=true&parenturl="+encodeURIComponent(window.location.href);
 
